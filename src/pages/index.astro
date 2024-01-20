@@ -1,0 +1,120 @@
+---
+import portraitImage from "../assets/Portrait.png";
+import { Image } from "astro:assets";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { GithubStats } from "@/components/GithubStats";
+import { ToolsIUse } from "@/components/ToolsIUse";
+import { getNowPlaying } from "@/lib/spotifyUtils";
+import { ChevronsDown } from "lucide-react";
+import { SpotifyNowPlaying } from "@/components/SpotifyNowPlaying";
+import { FavoriteWebTechnology } from "@/components/FavoriteWebTechnology";
+import { DevelopmentMachine } from "@/components/DevelopmentMachine";
+
+const githubQuery = `
+  query {
+    user(login: "${import.meta.env.VITE_GITHUB_USERNAME}") {
+      contributionsCollection {
+        totalCommitContributions
+      }
+      repositoriesContributedTo {
+        totalCount
+      }
+      repositories(first: 100, isFork: false, privacy: PUBLIC) {
+        totalCount
+        nodes {
+          stargazers {
+            totalCount
+          }
+        }
+      }
+      starredRepositories {
+        totalCount
+      }
+    }
+  }
+`;
+
+const githubUserData = await fetch("https://api.github.com/graphql", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + import.meta.env.VITE_GITHUB_TOKEN, // Include your personal access token here
+    },
+    body: JSON.stringify({ query: githubQuery }),
+})
+    .then((response) => response.json())
+    .then((data) => {
+        return data.data.user;
+    });
+
+const spotifyNowPlaying = await await getNowPlaying().then((res) => (res.status === 200 ? res.json() : undefined));
+---
+
+<BaseLayout title="Home" absolute>
+    <div class="relative h-[100vh] flex justify-center items-center gap-16 p-8 max-md:flex-col">
+        <Image
+            src={portraitImage}
+            width={800}
+            height={800}
+            alt="Portrait"
+            class="portrait-image h-[200px] w-[200px] lg:h-[400px] lg:w-[400px] object-cover"
+        />
+        <div class="flex flex-col gap-4 max-w-[32rem]">
+            <h1 class="scroll-m-20 text-4xl font-bold tracking-tight lg:text-5xl">Hi, I'm Ocskó Nándor</h1>
+            <h2 class="text-muted-foreground leading-7 font-mono">
+                I'm a Hungarian student with a passion for <span class="underline font-normal"
+                    >full stack web development</span
+                >.
+            </h2>
+        </div>
+        <div class="absolute bottom-5 left-0 right-0 w-full flex justify-center">
+            <span class="animate-bounce w-8 h-8">
+                <ChevronsDown />
+            </span>
+        </div>
+    </div>
+
+    <div class="columns-1 md:columns-2 lg:columns-3 gap-4 p-4">
+        <GithubStats userData={githubUserData} />
+        <DevelopmentMachine />
+        <SpotifyNowPlaying spotifyData={spotifyNowPlaying} />
+        <ToolsIUse />
+        <FavoriteWebTechnology />
+    </div>
+    <div class="w-full p-4">
+        <p class="text-muted-foreground text-center">
+            Designed and made by Ocskó Nándor using <a
+                class="font-medium underline"
+                href="https://ui.shadcn.com"
+                target="_blank">shadcn/ui</a
+            > and <a class="font-medium underline" href="https://astro.build/" target="_blank">Astro</a>.
+        </p>
+    </div>
+</BaseLayout>
+
+<style>
+    .portrait-image {
+        animation: portrait-border 10s ease-in-out infinite;
+    }
+
+    @keyframes portrait-border {
+        0% {
+            border-radius: 56% 44% 66% 34% / 46% 54% 46% 54%;
+        }
+        20% {
+            border-radius: 54% 46% 56% 44% / 56% 46% 54% 44%;
+        }
+        40% {
+            border-radius: 46% 54% 56% 44% / 56% 46% 54% 44%;
+        }
+        60% {
+            border-radius: 56% 44% 54% 46% / 46% 54% 46% 54%;
+        }
+        80% {
+            border-radius: 54% 46% 56% 44% / 56% 46% 54% 44%;
+        }
+        100% {
+            border-radius: 56% 44% 66% 34% / 46% 54% 46% 54%;
+        }
+    }
+</style>
