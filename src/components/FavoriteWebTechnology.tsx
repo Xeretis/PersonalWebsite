@@ -1,10 +1,8 @@
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 
-import exp from "constants";
-
 export const FavoriteWebTechnology = () => {
     return (
-        <Card className="max-w-full h-auto mb-4 break-inside-avoid">
+        <Card className="max-w-full break-inside-avoid">
             <CardHeader>
                 <CardTitle>My overall favorite web technology is...</CardTitle>
             </CardHeader>

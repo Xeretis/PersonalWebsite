@@ -1,0 +1,48 @@
+{
+	"version": 3,
+	"routes": [
+		{
+			"src": "^/_astro/(.*)$",
+			"headers": {
+				"cache-control": "public, max-age=31536000, immutable"
+			},
+			"continue": true
+		},
+		{
+			"handle": "filesystem"
+		},
+		{
+			"src": "^\\/_image$",
+			"dest": "render"
+		},
+		{
+			"src": "^\\/posts\\/test-post\\/?$",
+			"dest": "render"
+		},
+		{
+			"src": "^\\/rss\\.xml\\/?$",
+			"dest": "render"
+		},
+		{
+			"src": "^\\/$",
+			"dest": "render"
+		},
+		{
+			"src": "^\\/404\\/?$",
+			"dest": "render"
+		},
+		{
+			"src": "^\\/about\\/?$",
+			"dest": "render"
+		},
+		{
+			"src": "^\\/projects\\/?$",
+			"dest": "render"
+		},
+		{
+			"src": "/.*",
+			"dest": "render",
+			"status": 404
+		}
+	]
+}

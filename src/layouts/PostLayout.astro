@@ -1,0 +1,92 @@
+---
+import "@/styles/globals.css";
+import { SiteNavigation } from "@/components/SiteNavigation";
+import BaseLayout from "./BaseLayout.astro";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+
+const { frontmatter } = Astro.props;
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <meta name="description" content={frontmatter.description} />
+        <meta name="author" content={"Ocskó Nándor"} />
+        <meta name="keywords" content={frontmatter.tags} />
+        <title>{frontmatter.title}</title>
+    </head>
+    <body>
+        <SiteNavigation client:load absolute={false} />
+        <div class="p-8 sm:p-16">
+            <article
+                class="prose dark:prose-invert custom-prose-headings prose-h1:scroll-m-20
+                prose-h1:text-4xl prose-h1:font-bold prose-h1:tracking-tight
+                prose-h1:lg:text-5xl prose-h2:scroll-m-20 prose-h2:border-b
+                prose-h2:pb-2 prose-h2:text-3xl prose-h2:font-semibold
+                prose-h2:tracking-tight prose-h2:first:mt-0 prose-h3:scroll-m-20
+                prose-h3:text-2xl prose-h3:font-semibold prose-h3:tracking-tight
+                prose-h3:mt-0 prose-h4:scroll-m-20 prose-h4:text-xl prose-h4:font-semibold
+                prose-h4:tracking-tight prose-p:leading-7 prose-p:[&:not(:first-child)]:mt-6
+                prose-blockquote:mt-6 prose-blockquote:border-l-2 prose-blockquote:pl-6
+                prose-blockquote:italic prose-img:rounded-lg mx-auto"
+            >
+                <h1 class="not-prose scroll-m-20 text-4xl font-bold tracking-tight lg:text-5xl">{frontmatter.title}</h1>
+                <div class="flex justify-between mt-2">
+                    <p class="not-prose leading-7 text-muted-foreground text-sm">{frontmatter.minutesRead}</p>
+                    <p class="not-prose leading-7 text-muted-foreground text-sm">
+                        Published on:
+                        {
+                            new Date(frontmatter.pubDate).toLocaleDateString("en-US", {
+                                year: "numeric",
+                                month: "2-digit",
+                                day: "2-digit",
+                            })
+                        }
+                    </p>
+                </div>
+                <slot />
+            </article>
+            <div class="max-w-[65ch] mx-auto flex justify-between items-end mt-6">
+                <div class="flex-1">
+                    <p class="leading-7 text-muted-foreground text-sm">Tags:</p>
+                    <div class="flex flex-wrap gap-2">
+                        {frontmatter.tags.map((tag) => <Badge>{tag}</Badge>)}
+                    </div>
+                </div>
+                <a href="/blog">
+                    <Button variant="secondary">Back to the blog page</Button>
+                </a>
+            </div>
+            <div class="flex justify-center mt-6"></div>
+        </div>
+    </body>
+
+    <script is:inline>
+        const getThemePreference = () => {
+            if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+                return localStorage.getItem("theme");
+            }
+            return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        };
+        const isDark = getThemePreference() === "dark";
+        document.documentElement.classList[isDark ? "add" : "remove"]("dark");
+
+        if (typeof localStorage !== "undefined") {
+            const observer = new MutationObserver(() => {
+                const isDark = document.documentElement.classList.contains("dark");
+                localStorage.setItem("theme", isDark ? "dark" : "light");
+            });
+            observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+        }
+    </script>
+
+    <style>
+        .custom-prose-headings {
+            @apply prose-h2:scroll-m-20 prose-h2:border-b prose-h2:pb-2 prose-h2:text-3xl prose-h2:font-semibold prose-h2:tracking-tight prose-h2:first:mt-0;
+        }
+    </style>
+</html>

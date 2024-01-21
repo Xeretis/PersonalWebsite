@@ -1,13 +1,10 @@
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
-import { useEffect, useState } from "react";
-
-import { Skeleton } from "./ui/skeleton";
 
 export const GithubStats = ({ userData }) => {
     return (
-        <Card className="max-w-full mb-4 break-inside-avoid">
+        <Card className="max-w-full break-inside-avoid">
             <CardHeader>
-                <CardTitle>Github stats</CardTitle>
+                <CardTitle>My Github stats</CardTitle>
             </CardHeader>
             <CardContent>
                 <p className="text-muted-foreground leading-7">Total number of commits I made:</p>

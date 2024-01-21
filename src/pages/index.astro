@@ -9,6 +9,7 @@ import { ChevronsDown } from "lucide-react";
 import { SpotifyNowPlaying } from "@/components/SpotifyNowPlaying";
 import { FavoriteWebTechnology } from "@/components/FavoriteWebTechnology";
 import { DevelopmentMachine } from "@/components/DevelopmentMachine";
+import { Welcome } from "@/components/Welcome";
 
 const githubQuery = `
   query {
@@ -51,7 +52,7 @@ const spotifyNowPlaying = await await getNowPlaying().then((res) => (res.status 
 ---
 
 <BaseLayout title="Home" absolute>
-    <div class="relative h-[100vh] flex justify-center items-center gap-16 p-8 max-md:flex-col">
+    <div class="relative h-screen flex justify-center items-center gap-16 p-8 max-md:flex-col">
         <Image
             src={portraitImage}
             width={800}
@@ -62,9 +63,7 @@ const spotifyNowPlaying = await await getNowPlaying().then((res) => (res.status 
         <div class="flex flex-col gap-4 max-w-[32rem]">
             <h1 class="scroll-m-20 text-4xl font-bold tracking-tight lg:text-5xl">Hi, I'm Ocskó Nándor</h1>
             <h2 class="text-muted-foreground leading-7 font-mono">
-                I'm a Hungarian student with a passion for <span class="underline font-normal"
-                    >full stack web development</span
-                >.
+                I'm a Hungarian student with a passion for full-stack web development.
             </h2>
         </div>
         <div class="absolute bottom-5 left-0 right-0 w-full flex justify-center">
@@ -74,11 +73,28 @@ const spotifyNowPlaying = await await getNowPlaying().then((res) => (res.status 
         </div>
     </div>
 
-    <div class="columns-1 md:columns-2 lg:columns-3 gap-4 p-4">
-        <GithubStats userData={githubUserData} />
-        <DevelopmentMachine />
-        <SpotifyNowPlaying spotifyData={spotifyNowPlaying} />
-        <ToolsIUse />
+    <div class="columns-1 md:columns-2 lg:columns-3 p-4">
+        <!-- Now you may ask why do the spacing like this... The answer is ofc Safari -->
+        <div class="break-inside-avoid">
+            <Welcome />
+            <div class="h-4"></div>
+        </div>
+        <div class="break-inside-avoid">
+            <GithubStats userData={githubUserData} />
+            <div class="h-4"></div>
+        </div>
+        <div class="break-inside-avoid">
+            <DevelopmentMachine />
+            <div class="h-4"></div>
+        </div>
+        <div class="break-inside-avoid">
+            <SpotifyNowPlaying spotifyData={spotifyNowPlaying} />
+            {spotifyNowPlaying && <div class="h-4" />}
+        </div>
+        <div class="break-inside-avoid">
+            <ToolsIUse />
+            <div class="h-4"></div>
+        </div>
         <FavoriteWebTechnology />
     </div>
     <div class="w-full p-4">

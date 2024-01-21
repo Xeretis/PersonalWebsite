@@ -6,9 +6,9 @@ export const SpotifyNowPlaying = ({ spotifyData }: { spotifyData?: any }) => {
     if (!spotifyData) return null;
 
     return (
-        <Card className="max-w-full mb-4 break-inside-avoid">
+        <Card className="max-w-full break-inside-avoid">
             <CardHeader>
-                <CardTitle>See what I'm listening to</CardTitle>
+                <CardTitle>Currently I'm listening to</CardTitle>
             </CardHeader>
             <CardContent>
                 <div className="flex gap-4">
