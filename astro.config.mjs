@@ -15,10 +15,8 @@ export default defineConfig({
         }),
         mdx(),
     ],
-    // output: "server",
-    // adapter: vercel({
-    //     functionPerRoute: false,
-    // }),
+    output: "server",
+    adapter: vercel(),
     markdown: {
         remarkPlugins: [remarkReadingTime],
     },

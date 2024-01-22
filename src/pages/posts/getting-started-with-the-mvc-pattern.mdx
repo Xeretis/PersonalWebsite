@@ -46,7 +46,7 @@ Now that we have a basic understanding of the MVC pattern, let's look at a real 
 
 1. The user fills out a form with their name, email and password and submits it. This request is handled by the controller (which here is class named `RegisterController`).
 
-Lets look at some pseudo code for this controller:
+Lets look at some code for this controller:
 
 ```js
 class RegisterController {
@@ -82,7 +82,7 @@ Here you can see how the controller ties all thing together. It validates the re
 
 2. Now let's the model layer (in this case the `User` model). The controller asks the model layer if a user with the given email already exists, this is buisness logic. After that the controller creates a new user and saves it to the database, this is persistance logic.
 
-Let's look at some pseudo code for the `User` model:
+Let's look at some code for the `User` model:
 
 ```js
 class User {
