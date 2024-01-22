@@ -20,11 +20,4 @@ export default defineConfig({
     markdown: {
         remarkPlugins: [remarkReadingTime],
     },
-    // vite: {
-    //     build: {
-    //         rollupOptions: {
-    //             external: ["fsevents"],
-    //         },
-    //     },
-    // },
 });
