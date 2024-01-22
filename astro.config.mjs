@@ -7,7 +7,7 @@ import vercel from "@astrojs/vercel/serverless";
 
 // https://astro.build/config
 export default defineConfig({
-    site: "https://xeretis.github.io",
+    site: "https://xeretis.me",
     integrations: [
         react(),
         tailwind({
