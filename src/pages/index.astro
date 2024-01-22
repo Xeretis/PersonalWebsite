@@ -11,8 +11,6 @@ import { FavoriteWebTechnology } from "@/components/FavoriteWebTechnology";
 import { DevelopmentMachine } from "@/components/DevelopmentMachine";
 import { Welcome } from "@/components/Welcome";
 
-export const prerender = false;
-
 const githubQuery = `
   query {
     user(login: "${import.meta.env.VITE_GITHUB_USERNAME}") {
