@@ -1,4 +1,5 @@
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "./ui/card";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "./ui/carousel";
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "./ui/dialog";
 import {
     Drawer,
@@ -14,6 +15,8 @@ import { ExternalLink, Github } from "lucide-react";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 import { DialogHeader } from "./ui/dialog";
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
 import { useMediaQuery } from "@uidotdev/usehooks";
 import { useState } from "react";
 
@@ -23,6 +26,7 @@ export interface Project {
     tags: string[];
     githubUrl?: string;
     liveUrl?: string;
+    images?: ImageMetadata[];
 }
 
 export const ProjectCard = ({ project }: { project: Project }) => {
@@ -41,6 +45,7 @@ export const ProjectCard = ({ project }: { project: Project }) => {
                     <DialogHeader>
                         <DialogTitle>{project.name}</DialogTitle>
                     </DialogHeader>
+                    {project.images && <ImageCarusel project={project} />}
                     <p className="leading-7 font-mono">{project.description}</p>
                     <p className="font-semibold -mb-2">Tags:</p>
                     <div className="flex flex-wrap gap-2">
@@ -87,11 +92,12 @@ export const ProjectCard = ({ project }: { project: Project }) => {
                     <TriggerCard project={project} />
                 </div>
             </DrawerTrigger>
-            <DrawerContent>
+            <DrawerContent className="max-h-[30rem] overflow-x-scroll">
                 <DrawerHeader className="text-left">
                     <DrawerTitle>{project.name}</DrawerTitle>
                 </DrawerHeader>
-                <div className="p-4 grid gap-4">
+                <div className="p-4 grid gap-4 overflow-x-auto">
+                    {project.images && <ImageCarusel project={project} controls={false} />}
                     <p className="leading-7 font-mono">{project.description}</p>
                     <p className="font-semibold -mb-2">Tags:</p>
                     <div className="flex flex-wrap gap-2">
@@ -126,12 +132,10 @@ export const ProjectCard = ({ project }: { project: Project }) => {
                             </div>
                         </>
                     )}
-                </div>
-                <DrawerFooter className="pt-2">
                     <DrawerClose asChild>
                         <Button variant="outline">Close</Button>
                     </DrawerClose>
-                </DrawerFooter>
+                </div>
             </DrawerContent>
         </Drawer>
     );
@@ -176,5 +180,30 @@ const TriggerCard = ({ project }: { project: Project }) => {
                 </CardFooter>
             )}
         </Card>
+    );
+};
+
+const ImageCarusel = ({ project, controls = true }: { project: Project; controls?: boolean }) => {
+    return (
+        <div className="flex flex-col items-center justify-center">
+            <Carousel className="w-full max-w-xs">
+                <CarouselContent>
+                    {project.images.map((image, index) => (
+                        <CarouselItem key={index}>
+                            <img src={image.src} alt={"Project image showing " + project.name} className="rounded-lg" />
+                        </CarouselItem>
+                    ))}
+                </CarouselContent>
+                {controls && (
+                    <>
+                        <CarouselPrevious />
+                        <CarouselNext />
+                    </>
+                )}
+            </Carousel>
+            {!controls && project.images.length > 1 && (
+                <p className="text-sm text-muted-foreground">Swipe sideways to see more</p>
+            )}
+        </div>
     );
 };

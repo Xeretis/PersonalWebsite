@@ -1,7 +1,13 @@
 ---
 import { ProjectCard } from "@/components/ProjectCard";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import lovassyApp1Image from "../assets/projects/LovassyApp1.png";
+import lovassyApp2Image from "../assets/projects/LovassyApp2.png";
+import lovassyApp3Image from "../assets/projects/LovassyApp3.png";
+import lovassyApp4Image from "../assets/projects/LovassyApp4.png";
+import dayGuesser1Image from "../assets/projects/DayGuesser1.png";
+import nextClient1Image from "../assets/projects/NextClient1.png";
+import docsharing1Image from "../assets/projects/Docsharing1.png";
 
 const projects = [
     {
@@ -11,6 +17,7 @@ const projects = [
         tags: ["ASP.NET Core", "React", "Mantine", "Typescript", "Tauri", "Rust"],
         githubUrl: "https://github.com/LovassyApp/LovassyApp",
         liveUrl: "https://app.lovassy.hu",
+        images: [lovassyApp1Image, lovassyApp2Image, lovassyApp3Image, lovassyApp4Image],
     },
     {
         name: "QrTagger",
@@ -32,6 +39,7 @@ const projects = [
             'A platform for sharing documents with others by uploading them to a "space" which can be accessed by anyone with a link or code that can even be time limited. This was my first laravel project.',
         tags: ["Laravel", "Livewire", "Tailwind CSS", "Alpine.js"],
         githubUrl: "https://github.com/Xeretis/Docsharing",
+        images: [docsharing1Image],
     },
     {
         name: "CreativeScieneceTournament",
@@ -61,6 +69,7 @@ const projects = [
             "A minecraft utility mod aimed at anarchy servers. It includes a comprehensive set of features, most notably a predictive crystal aura and a macro system. It was one of my first projects that use OOP.",
         tags: ["Java", "Fabric", "PanelStudio"],
         githubUrl: "https://github.com/Xeretis/NextClient/tree/rewrite",
+        images: [nextClient1Image],
     },
     {
         name: "DayGuesser",
@@ -69,6 +78,7 @@ const projects = [
         tags: ["React", "Mantine", "Typescript"],
         githubUrl: "https://github.com/Xeretis/DayGuesser",
         liveUrl: "https://day-guesser.vercel.app",
+        images: [dayGuesser1Image],
     },
     {
         name: "ASPiderBlogEngine",
