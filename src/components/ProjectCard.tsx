@@ -139,7 +139,7 @@ export const ProjectCard = ({ project }: { project: Project }) => {
 
 const TriggerCard = ({ project }: { project: Project }) => {
     return (
-        <Card className="cursor-pointer">
+        <Card className="cursor-pointer" role="button" aria-haspopup="true">
             <CardHeader className="overflow-hidden">
                 <CardTitle className="truncate">{project.name}</CardTitle>
             </CardHeader>
