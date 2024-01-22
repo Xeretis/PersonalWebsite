@@ -2,7 +2,7 @@
 import "@/styles/globals.css";
 import { SiteNavigation } from "../components/SiteNavigation";
 
-const { title, absolute = false } = Astro.props;
+const { title, description, keywords = [], absolute = false } = Astro.props;
 ---
 
 <html lang="en">
@@ -11,6 +11,12 @@ const { title, absolute = false } = Astro.props;
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
+        <meta name="description" content={description} />
+        <meta
+            name="keywords"
+            content={["Ocskó Nándor", "Web development", "Fullstack developer", ...keywords].join(",")}
+        />
+
         <title>{title}</title>
     </head>
     <body>

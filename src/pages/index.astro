@@ -51,7 +51,11 @@ const githubUserData = await fetch("https://api.github.com/graphql", {
 const spotifyNowPlaying = await await getNowPlaying().then((res) => (res.status === 200 ? res.json() : undefined));
 ---
 
-<BaseLayout title="Home" absolute>
+<BaseLayout
+    title="Home"
+    description="Hi, I'm Ocskó Nándor. This is my portfolio page. If you are interested in contacting me or you want to see what I do, you're in the right place."
+    absolute
+>
     <div class="relative h-screen flex justify-center items-center gap-16 p-8 max-md:flex-col">
         <Image
             src={portraitImage}
