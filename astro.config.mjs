@@ -20,4 +20,9 @@ export default defineConfig({
     markdown: {
         remarkPlugins: [remarkReadingTime],
     },
+    vite: {
+        ssr: {
+            noExternal: ["fsevents"],
+        },
+    },
 });
