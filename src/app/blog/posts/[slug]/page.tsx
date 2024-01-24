@@ -21,6 +21,15 @@ export async function generateStaticParams() {
     return paths;
 }
 
+export async function generateMetadata({ params }: any) {
+    const blog = getPost(params);
+
+    return {
+        title: blog.frontmatter.title,
+        description: blog.frontmatter.description,
+    };
+}
+
 function getPost({ slug }: { slug: string }) {
     const markdownFile = fs.readFileSync(path.join("src", "content", "posts", slug + ".mdx"), "utf-8");
 

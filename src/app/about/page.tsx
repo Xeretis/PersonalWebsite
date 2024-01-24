@@ -1,7 +1,14 @@
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
+import { Metadata } from "next";
 import { SiteNavigation } from "@/components/site-navigation";
 import portraitImage from "@/assets/about/portrait.png";
+
+export const metadata: Metadata = {
+    title: "About | Ocskó Nándor",
+    description:
+        "Hi, I'm Ocskó Nándor. This is my about page so if you are intersted in my skillset, education (or even my hobbies) then you're in the right place.",
+};
 
 export default function About() {
     return (

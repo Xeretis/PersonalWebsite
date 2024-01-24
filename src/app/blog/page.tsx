@@ -1,6 +1,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "../../components/ui/button";
 import Link from "next/link";
+import { Metadata } from "next";
 import { Rss } from "lucide-react";
 import { RssButton } from "@/components/blog/rss-button";
 import { SiteNavigation } from "@/components/site-navigation";
@@ -25,6 +26,12 @@ function getPosts() {
 
     return posts;
 }
+
+export const metadata: Metadata = {
+    title: "Blog | Ocskó Nándor",
+    description:
+        "Hi, I'm Ocskó Nándor. This is my blog page where I ocassionally write about web development, laravel, ASP.NET Core and much more.",
+};
 
 export default function Blog() {
     const posts = getPosts();

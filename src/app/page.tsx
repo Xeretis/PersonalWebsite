@@ -3,6 +3,7 @@ import { DevelopmentMachine } from "@/components/home/development-machine";
 import { FavoriteWebTechnology } from "@/components/home/favorite-web-technology";
 import { GithubStats } from "@/components/home/github-stats";
 import Image from "next/image";
+import { Metadata } from "next";
 import { SiteNavigation } from "@/components/site-navigation";
 import { SpotifyNowPlaying } from "@/components/home/spotify-now-playing";
 import { ToolsIUse } from "@/components/home/tools-i-use";
@@ -86,6 +87,12 @@ const getSpotifyData = async () => {
     });
 
     return (result.status === 200 ? result.json() : undefined) as Promise<any>;
+};
+
+export const metadata: Metadata = {
+    title: "Home | Ocskó Nándor",
+    description:
+        "Hi, I'm Ocskó Nándor. This is my portfolio page. If you are interested in contacting me or you want to see what I do, you're in the right place.",
 };
 
 export default async function Home() {

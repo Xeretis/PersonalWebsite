@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import { ProjectCard } from "@/components/projects/project-card";
 import { SiteNavigation } from "@/components/site-navigation";
 import dayGuesser1Image from "@/assets/projects/DayGuesser1.png";
@@ -7,6 +8,12 @@ import lovassyApp2Image from "@/assets/projects/LovassyApp2.png";
 import lovassyApp3Image from "@/assets/projects/LovassyApp3.png";
 import lovassyApp4Image from "@/assets/projects/LovassyApp4.png";
 import nextClient1Image from "@/assets/projects/NextClient1.png";
+
+export const metadata: Metadata = {
+    title: "Projects | Ocskó Nándor",
+    description:
+        "Hi, I'm Ocskó Nándor. I mostly do full stack web development but here you can see my projects from all kinds IT fields.",
+};
 
 export default function Projects() {
     const projects = [
