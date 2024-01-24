@@ -3,6 +3,7 @@ import "./styles.css";
 import { Analytics } from "@vercel/analytics/react";
 import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ThemeProvider } from "@/components/theme-provider";
 
 export const metadata: Metadata = {
@@ -22,6 +23,7 @@ export default function RootLayout({
                     {children}
                 </ThemeProvider>
                 <Analytics />
+                <SpeedInsights />
             </body>
         </html>
     );
