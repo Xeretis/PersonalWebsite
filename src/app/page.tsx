@@ -3,6 +3,7 @@ import { DevelopmentMachine } from "@/components/home/development-machine";
 import { FavoriteWebTechnology } from "@/components/home/favorite-web-technology";
 import { GithubStats } from "@/components/home/github-stats";
 import Image from "next/image";
+import Link from "next/link";
 import { Metadata } from "next";
 import { SiteNavigation } from "@/components/site-navigation";
 import { SpotifyNowPlaying } from "@/components/home/spotify-now-playing";
@@ -119,12 +120,12 @@ export default async function Home() {
                     </h2>
                 </div>
                 <div className="absolute bottom-5 left-0 right-0 w-full flex justify-center">
-                    <span className="animate-bounce w-8 h-8">
+                    <Link className="animate-bounce w-8 h-8" href="#widgets">
                         <ChevronsDown />
-                    </span>
+                    </Link>
                 </div>
             </div>
-            <div className="columns-1 md:columns-2 lg:columns-3 p-4">
+            <div className="columns-1 md:columns-2 lg:columns-3 p-4" id="widgets">
                 <div className="break-inside-avoid">
                     <Welcome />
                     <div className="h-4"></div>
