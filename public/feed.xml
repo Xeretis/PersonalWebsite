@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title><![CDATA[Blog posts | Ocskó Nándor]]></title>
+        <description><![CDATA[Welcome to my blog! I post here ocassionally about web development, my projects, IT related stuff and many other things.]]></description>
+        <link>http://localhost:3000</link>
+        <image>
+            <url>http://localhost:3000/logo.png</url>
+            <title>Blog posts | Ocskó Nándor</title>
+            <link>http://localhost:3000</link>
+        </image>
+        <generator>RSS for Node</generator>
+        <lastBuildDate>Wed, 24 Jan 2024 17:44:51 GMT</lastBuildDate>
+        <atom:link href="http://localhost:3000/feed.xml" rel="self" type="application/rss+xml"/>
+        <pubDate>Wed, 24 Jan 2024 17:44:51 GMT</pubDate>
+        <copyright><![CDATA[All rights reserved 2024]]></copyright>
+        <item>
+            <title><![CDATA[Getting started with the MVC pattern]]></title>
+            <description><![CDATA[Learn the basics of the MVC pattern and get a feel for how it works. This blog post is for you if you are completely new to MVC or to web development in general.]]></description>
+            <link>http://localhost:3000/posts/getting-started-with-the-mvc-pattern</link>
+            <guid isPermaLink="true">http://localhost:3000/posts/getting-started-with-the-mvc-pattern</guid>
+            <pubDate>Mon, 22 Jan 2024 00:00:00 GMT</pubDate>
+        </item>
+    </channel>
+</rss>

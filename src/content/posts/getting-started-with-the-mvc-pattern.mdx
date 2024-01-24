@@ -1,0 +1,144 @@
+---
+title: "Getting started with the MVC pattern"
+pubDate: 2024-01-22
+description: "Learn the basics of the MVC pattern and get a feel for how it works. This blog post is for you if you are completely new to MVC or to web development in general."
+tags: ["Web Development", "Backend", "Patterns"]
+---
+
+So I guess you might have stumbled upon this blog post because you've read something along the lines of "this framework uses the MVC pattern" or "this is a MVC framework" on a site you visited. But what does that mean? What is MVC? And why is it so popular?
+
+## What is MVC?
+
+The abbreviation "MVC" stands for "Model-View-Controller". It is an architectural pattern that is used in many web frameworks and it aims to make your application more maintainable and easier to understand. It does so by splitting your application into three parts (also called layers): the model, the view and the controller. Each of these parts has a specific purpose and they all work together to create a functioning application.
+
+Now you may be wondering: "What is the point of splitting up my application into different parts/layers?" Well, the answer comes down to the **separation of concerns**. The idea behind the separation of concerns could have it's own blog post, but in short it means that each part of your application should be responsible for it's own thing with **as little overlap between the parts as possible**. If done right, this makes your application easier to understand and maintain in the long run.
+
+## Overwiew of the MVC pattern
+
+<Image src="/posts/MVCPattern.png" width={800} height={600} alt="A digram showing how the MVC layers interact" />
+
+The above diagram shows how the different parts of the MVC pattern interact with each other, but let's go over each part in more detail.
+
+### The model layer
+
+This is the layer that is responsible for **the data of your application**. This is the layer that interacts with your **persistance** solution (eg. database, file system) and it also contains the **buisness logic**.
+
+Now the fact that the model layer contains buisness logic might be a bit missleading. In most applications the main buisness logic (that isn't persistance) is stored in it's own layer outside of the MVC pattern, which is called the service layer. For the sake of simplicity, I will asume that the buisness logic is stored in the model layer in this blog post but you should be aware that the service layer exists (and is usually called by our next layer, the controller).
+
+### The controller layer
+
+This is the layer that is responsible for handling the requests that come from the client. It **retreives and stores data from the model layer** and then **transforms this data** into a format that the view layer can understand.
+
+Any **side effects** that are caused by the request (eg. sending an email) are also handled by the controller layer.
+
+### The view layer
+
+Now the view layer might just be the simplest to understand. It is responsible for **displaying the data** that is passed to it by the controller layer (essentially it's an html template with dynamic content).
+
+Many applications that are made with a framework MVC pattern are missing this layer, these applications are most commonly API applications that only return JSON data to the client and the actual presentation logic is handled in a different client side app.
+
+## A real world example
+
+Now that we have a basic understanding of the MVC pattern, let's look at a real world example of how it could be used. For this example we will look at a registration flow using the MVC pattern.
+
+1. The user fills out a form with their name, email and password and submits it. This request is handled by the controller (which here is class named `RegisterController`).
+
+Lets look at some code for this controller:
+
+```js
+class RegisterController {
+    function handleRequest(request) {
+        // Validate the request (eg. check if the email is valid in the valid format, check if all required filelds are present)
+        validate(request);
+
+        // Check if the user already exists
+        if (User.alreadyExists(request.email)) {
+            return view("register", { error: "User already exists" });
+        }
+
+        // Create the user
+        const user = new User(request.name, request.email, request.password);
+
+        // Save the user to the database
+        user.save();
+
+        // Send an email to the user to verify their email address
+        Mailer.sendVerfificationEmail(user.email);
+
+        // Return a new view with the data of the user, notice how we don't pass the password to the view (so we are transforming it)
+        return view("verify-email", { user: { name: user.name, email: user.email }});
+    }
+
+    function validate(request) {
+        // ...
+    }
+}
+```
+
+Here you can see how the controller ties all thing together. It validates the request, then interacts with the model (we'll look at that in a second), sends out an email (which is a side effect) and finally it returns a view with the data of the user.
+
+2. Now let's the model layer (in this case the `User` model). The controller asks the model layer if a user with the given email already exists, this is buisness logic. After that the controller creates a new user and saves it to the database, this is persistance logic.
+
+Let's look at some code for the `User` model:
+
+```js
+class User {
+    constructor(name, email, password) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+    }
+
+    static function alreadyExists(email) {
+        // Check if the user already exists in the database
+        // ...
+    }
+
+    function save() {
+        // Save the user to the database
+        // ...
+    }
+}
+```
+
+3. Finally, the view layer. The controller returns a view with the data of the user, which is then rendered by the view layer.
+
+Here is how the view layer might look like:
+
+```blade
+<h1>Verify your email</h1>
+<p>Hi {{ user.name }}, we have sent you an email to {{ user.email }}. Please click the link in the email to verify your email address.</p>
+```
+
+Notice how we use data that was passed to the view by the controller to display the name and email of the user. Replacing the `{{ user.name }}` and `{{ user.email }}` with the actual data is done on the server side at the end of the request-response cycle.
+
+## Is MVC the right pattern for you?
+
+Let's look at some potential use cases to help you decide if it is the right pattern for your next project.
+
+### The MVC pattern might be a good fit if
+
+- You are building a **medium to large sized application** with many different features *(if it's a large project consider looking into the service layer, N-tier artchitecture and clean architecture as well)*.
+- You are building a **server side rendered application**.
+
+### The MVC pattern might not be a good fit if
+
+- You are building a **small application with only a few features**.
+- You are building an application with **most of the features on the client side**. In this case the overhead of the MVC pattern just might not be worth it.
+- If you need to **audit anything and everything** that happens in your application. Now the previous sentence may be a little overexaggerated, but if this is the case, then you might want to look into event driven architecture.
+
+## Frameworks that use the MVC pattern
+
+Now that we have a basic understanding of the MVC pattern, let's look at some frameworks that use it. Here is a small list of some of the most popular ones:
+
+- [ASP.NET Core (when using the MVC template)](https://docs.microsoft.com/en-us/aspnet/core/mvc/overview?view=aspnetcore-8.0)
+- [Laravel](https://laravel.com/)
+- [Ruby on Rails](https://rubyonrails.org/)
+- [Django](https://www.djangoproject.com/)
+- [Spring MVC](https://docs.spring.io/spring-framework/reference/web/webmvc.html)
+
+## Conclusion
+
+The MVC pattern is a very popular architectural pattern that is used in many web frameworks. It splits your application into three parts (the model, the view and the controller) and it aims to make your application more maintainable and easier to understand.
+
+Just like any other pattern, MVC has it's pros and cons. It is a very popular pattern and it is used in many frameworks, so it is definitely worth learning. However, it is not the only pattern out there and it might not be the best fit for your next project.

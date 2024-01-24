@@ -1,0 +1,24 @@
+.portrait-image {
+    animation: portrait-border 10s ease-in-out infinite;
+}
+
+@keyframes portrait-border {
+    0% {
+        border-radius: 56% 44% 66% 34% / 46% 54% 46% 54%;
+    }
+    20% {
+        border-radius: 54% 46% 56% 44% / 56% 46% 54% 44%;
+    }
+    40% {
+        border-radius: 46% 54% 56% 44% / 56% 46% 54% 44%;
+    }
+    60% {
+        border-radius: 56% 44% 54% 46% / 46% 54% 46% 54%;
+    }
+    80% {
+        border-radius: 54% 46% 56% 44% / 56% 46% 54% 44%;
+    }
+    100% {
+        border-radius: 56% 44% 66% 34% / 46% 54% 46% 54%;
+    }
+}
