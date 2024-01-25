@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { MdxLink } from "@/components/blog/mdx/custom-link";
+import { Metadata } from "next";
 import { SiteNavigation } from "@/components/site-navigation";
 import fs from "fs";
 import matter from "gray-matter";
@@ -22,12 +23,24 @@ export async function generateStaticParams() {
     return paths;
 }
 
-export async function generateMetadata({ params }: any) {
-    const blog = getPost(params);
+const site_url = process.env.NODE_ENV === "production" ? "https://xeretis.me" : "http://localhost:3000";
+
+export async function generateMetadata({ params }: any): Promise<Metadata> {
+    const post = getPost(params);
 
     return {
-        title: blog.frontmatter.title,
-        description: blog.frontmatter.description,
+        metadataBase: new URL(site_url),
+        title: post.frontmatter.title,
+        description: post.frontmatter.description,
+        openGraph: {
+            determiner:
+                post.frontmatter.title.startsWith("A ") || post.frontmatter.title.startsWith("An ")
+                    ? "auto"
+                    : post.frontmatter.title.startsWith("The ")
+                    ? "the"
+                    : "",
+            type: "article",
+        },
     };
 }
 
@@ -59,15 +72,15 @@ export default function Post({ params }: any) {
             <div className="p-8 sm:p-16">
                 <article
                     className="prose dark:prose-invert custom-prose-headings prose-h1:scroll-m-20
-                prose-h1:text-4xl prose-h1:font-bold prose-h1:tracking-tight
-                prose-h1:lg:text-5xl prose-h2:scroll-m-20 prose-h2:border-b
-                prose-h2:pb-2 prose-h2:text-3xl prose-h2:font-semibold
-                prose-h2:tracking-tight prose-h2:first:mt-0 prose-h3:scroll-m-20
-                prose-h3:text-2xl prose-h3:font-semibold prose-h3:tracking-tight
-                prose-h3:mt-0 prose-h4:scroll-m-20 prose-h4:text-xl prose-h4:font-semibold
-                prose-h4:tracking-tight prose-p:leading-7 prose-p:[&:not(:first-child)]:mt-6
-                prose-blockquote:mt-6 prose-blockquote:border-l-2 prose-blockquote:pl-6
-                prose-blockquote:italic prose-img:rounded-lg mx-auto"
+                        prose-h1:text-4xl prose-h1:font-bold prose-h1:tracking-tight
+                        prose-h1:lg:text-5xl prose-h2:scroll-m-20 prose-h2:border-b
+                        prose-h2:pb-2 prose-h2:text-3xl prose-h2:font-semibold
+                        prose-h2:tracking-tight prose-h2:first:mt-0 prose-h3:scroll-m-20
+                        prose-h3:text-2xl prose-h3:font-semibold prose-h3:tracking-tight
+                        prose-h3:mt-0 prose-h4:scroll-m-20 prose-h4:text-xl prose-h4:font-semibold
+                        prose-h4:tracking-tight prose-p:leading-7 prose-p:[&:not(:first-child)]:mt-6
+                        prose-blockquote:mt-6 prose-blockquote:border-l-2 prose-blockquote:pl-6
+                        prose-blockquote:italic prose-img:rounded-lg mx-auto"
                 >
                     <h1 className="not-prose scroll-m-20 text-4xl font-bold tracking-tight lg:text-5xl">
                         {props.frontmatter.title}
