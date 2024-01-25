@@ -15,6 +15,8 @@ export const metadata: Metadata = {
         "Hi, I'm Ocskó Nándor. I mostly do full stack web development but here you can see my projects from all kinds IT fields.",
 };
 
+const site_url = process.env.NODE_ENV === "production" ? "https://xeretis.me" : "http://localhost:3000";
+
 export default function Projects() {
     const projects = [
         {
@@ -124,6 +126,22 @@ export default function Projects() {
         },
     ];
 
+    const jsonLd = {
+        "@schema": "https://schema.org",
+        "@type": "ItemList",
+        url: `${site_url}/projects`,
+        name: "Projects | Ocskó Nándor",
+        description:
+            "Hi, I'm Ocskó Nándor. I mostly do full stack web development but here you can see my projects from all kinds IT fields.",
+        itemListElement: projects.map((project) => ({
+            "@type": "Project",
+            name: project.name,
+            description: project.description,
+            url: project.liveUrl ?? project.githubUrl ?? null,
+            keywords: project.tags.join(", "),
+        })),
+    };
+
     return (
         <>
             <SiteNavigation />
@@ -142,6 +160,7 @@ export default function Projects() {
                     for more! Oh and just click on the cards to see more about the projects.
                 </p>
             </div>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         </>
     );
 }

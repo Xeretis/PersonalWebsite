@@ -33,8 +33,57 @@ export const metadata: Metadata = {
         "Hi, I'm Ocskó Nándor. This is my blog page where I ocassionally write about web development, laravel, ASP.NET Core and much more.",
 };
 
+const site_url = process.env.NODE_ENV === "production" ? "https://xeretis.me" : "http://localhost:3000";
+
 export default function Blog() {
     const posts = getPosts();
+
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        url: `${site_url}/blog`,
+        name: "Blog | Ocskó Nándor",
+        description:
+            "Hi, I'm Ocskó Nándor. This is my blog page where I ocassionally write about web development, laravel, ASP.NET Core and much more.",
+        publisher: {
+            "@type": "Person",
+            name: "Ocskó Nándor",
+            url: site_url,
+        },
+        blogPosts: posts.map((post) => ({
+            "@type": "BlogPosting",
+            headline: post.frontmatter.title,
+            genre: "Technology and Software Development",
+            keywords: post.frontmatter.tags.join(", "),
+            url: `${site_url}/blog/posts/${post.slug}`,
+            datePublished: post.frontmatter.pubDate,
+            description: post.frontmatter.description,
+            image: {
+                "@type": "ImageObject",
+                url: `${site_url}/blog/thumbnail?title=${encodeURIComponent(
+                    post.frontmatter.title
+                )}&tags=${encodeURIComponent(post.frontmatter.tags.join(","))}`,
+                width: 1200,
+                height: 600,
+            },
+            inLanguage: "en-US",
+            author: {
+                "@type": "Person",
+                name: "Ocskó Nándor",
+                url: site_url,
+            },
+            creator: {
+                "@type": "Person",
+                name: "Ocskó Nándor",
+                url: site_url,
+            },
+            publisher: {
+                "@type": "Person",
+                name: "Ocskó Nándor",
+                url: site_url,
+            },
+        })),
+    };
 
     return (
         <>
@@ -95,6 +144,7 @@ export default function Blog() {
                     with any questions or ideas!
                 </p>
             </div>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         </>
     );
 }

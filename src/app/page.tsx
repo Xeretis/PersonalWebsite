@@ -96,9 +96,97 @@ export const metadata: Metadata = {
         "Hi, I'm Ocskó Nándor. This is my portfolio page. If you are interested in contacting me or you want to see what I do, you're in the right place.",
 };
 
+const site_url = process.env.NODE_ENV === "production" ? "https://xeretis.me" : "http://localhost:3000";
+
 export default async function Home() {
     const githubUserData = await getGithubData();
     const spotifyData = await getSpotifyData();
+
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        name: "Ocskó Nándor",
+        url: site_url,
+        sameAs: [
+            "https://www.linkedin.com/in/ocsk%C3%B3-n%C3%A1ndor-a81183262/",
+            "https://https://github.com/xeretis",
+            `${site_url}/about`,
+        ],
+        email: "ocskon@gmail.com",
+        gender: "male",
+        knowsAbout: [
+            {
+                "@type": "Thing",
+                name: "Full-Stack Web Development",
+            },
+            {
+                "@type": "Thing",
+                name: "ASP.NET Core",
+            },
+            {
+                "@type": "Thing",
+                name: "C#",
+            },
+            {
+                "@type": "Thing",
+                name: "Laravel",
+            },
+            {
+                "@type": "Thing",
+                name: "Livewire",
+            },
+            {
+                "@type": "Thing",
+                name: "PHP",
+            },
+            {
+                "@type": "Thing",
+                name: "React",
+            },
+            {
+                "@type": "Thing",
+                name: "Typescript",
+            },
+            {
+                "@type": "Thing",
+                name: "Tailwind CSS",
+            },
+            {
+                "@type": "Thing",
+                name: "REST API",
+            },
+            {
+                "@type": "Thing",
+                name: "Docker",
+            },
+        ],
+        knowsLanguage: [
+            {
+                "@type": "Language",
+                name: "Hungarian",
+                alternateName: "hu",
+            },
+            {
+                "@type": "Language",
+                name: "English",
+                alternateName: "en",
+            },
+            {
+                "@type": "Language",
+                name: "German",
+                alternateName: "de",
+            },
+            {
+                "@type": "Language",
+                name: "French",
+                alternateName: "fr",
+            },
+        ],
+        mainEntityOfPage: {
+            "@type": "WebPage",
+            "@id": site_url,
+        },
+    };
 
     return (
         <>
@@ -161,6 +249,7 @@ export default async function Home() {
                     .
                 </p>
             </div>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         </>
     );
 }

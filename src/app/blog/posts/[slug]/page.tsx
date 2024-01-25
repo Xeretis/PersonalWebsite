@@ -53,8 +53,45 @@ function getPost({ slug }: { slug: string }) {
     };
 }
 
+const site_url = process.env.NODE_ENV === "production" ? "https://xeretis.me" : "http://localhost:3000";
+
 export default function Post({ params }: any) {
-    const props = getPost(params);
+    const post = getPost(params);
+
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        headline: post.frontmatter.title,
+        genre: "Technology and Software Development",
+        keywords: post.frontmatter.tags.join(", "),
+        url: `${site_url}/blog/posts/${post.slug}`,
+        datePublished: post.frontmatter.pubDate,
+        description: post.frontmatter.description,
+        image: {
+            "@type": "ImageObject",
+            url: `${site_url}/blog/thumbnail?title=${encodeURIComponent(
+                post.frontmatter.title
+            )}&tags=${encodeURIComponent(post.frontmatter.tags.join(","))}`,
+            width: 1200,
+            height: 600,
+        },
+        inLanguage: "en-US",
+        author: {
+            "@type": "Person",
+            name: "Ocskó Nándor",
+            url: site_url,
+        },
+        creator: {
+            "@type": "Person",
+            name: "Ocskó Nándor",
+            url: site_url,
+        },
+        publisher: {
+            "@type": "Person",
+            name: "Ocskó Nándor",
+            url: site_url,
+        },
+    };
 
     const options = {
         mdxOptions: {
@@ -80,15 +117,15 @@ export default function Post({ params }: any) {
                         prose-blockquote:italic prose-img:rounded-lg mx-auto"
                 >
                     <h1 className="not-prose scroll-m-20 text-4xl font-bold tracking-tight lg:text-5xl">
-                        {props.frontmatter.title}
+                        {post.frontmatter.title}
                     </h1>
                     <div className="flex justify-between mt-2">
                         <p className="not-prose leading-7 text-muted-foreground text-sm">
-                            {readingDuration(props.content, { emoji: false })}
+                            {readingDuration(post.content, { emoji: false })}
                         </p>
                         <p className="not-prose leading-7 text-muted-foreground text-sm">
-                            Published on:
-                            {new Date(props.frontmatter.pubDate).toLocaleDateString("en-US", {
+                            Published on:{" "}
+                            {new Date(post.frontmatter.pubDate).toLocaleDateString("en-US", {
                                 year: "numeric",
                                 month: "2-digit",
                                 day: "2-digit",
@@ -96,7 +133,7 @@ export default function Post({ params }: any) {
                         </p>
                     </div>
                     <MDXRemote
-                        source={props.content}
+                        source={post.content}
                         components={{ Image: (props) => <Image {...props} />, a: MdxLink }}
                         options={options as any}
                     />
@@ -105,7 +142,7 @@ export default function Post({ params }: any) {
                     <div className="flex-1">
                         <p className="leading-7 text-muted-foreground text-sm">Tags:</p>
                         <div className="flex flex-wrap gap-2">
-                            {props.frontmatter.tags.map((tag: string) => (
+                            {post.frontmatter.tags.map((tag: string) => (
                                 <Badge key={tag}>{tag}</Badge>
                             ))}
                         </div>
@@ -115,6 +152,7 @@ export default function Post({ params }: any) {
                     </a>
                 </div>
             </div>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         </>
     );
 }
