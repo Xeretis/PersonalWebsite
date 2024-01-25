@@ -29,6 +29,7 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
     return {
         title: post.frontmatter.title,
         description: post.frontmatter.description,
+        category: "technology",
         openGraph: {
             determiner:
                 post.frontmatter.title.startsWith("A ") || post.frontmatter.title.startsWith("An ")

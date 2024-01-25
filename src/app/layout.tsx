@@ -10,6 +10,12 @@ const site_url = process.env.NODE_ENV === "production" ? "https://xeretis.me" : 
 
 export const metadata: Metadata = {
     metadataBase: new URL(site_url),
+    alternates: {
+        types: {
+            "application/rss+xml": `${site_url}/feed.xml`,
+        },
+    },
+    category: "portfolio",
 };
 
 export default function RootLayout({

@@ -31,6 +31,7 @@ export const metadata: Metadata = {
     title: "Blog | Ocskó Nándor",
     description:
         "Hi, I'm Ocskó Nándor. This is my blog page where I ocassionally write about web development, laravel, ASP.NET Core and much more.",
+    category: "technology",
 };
 
 const site_url = process.env.NODE_ENV === "production" ? "https://xeretis.me" : "http://localhost:3000";
