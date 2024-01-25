@@ -23,13 +23,10 @@ export async function generateStaticParams() {
     return paths;
 }
 
-const site_url = process.env.NODE_ENV === "production" ? "https://xeretis.me" : "http://localhost:3000";
-
 export async function generateMetadata({ params }: any): Promise<Metadata> {
     const post = getPost(params);
 
     return {
-        metadataBase: new URL(site_url),
         title: post.frontmatter.title,
         description: post.frontmatter.description,
         openGraph: {
