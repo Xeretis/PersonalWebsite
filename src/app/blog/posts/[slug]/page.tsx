@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import { MdxLink } from "@/components/blog/mdx/custom-link";
 import { SiteNavigation } from "@/components/site-navigation";
 import fs from "fs";
 import matter from "gray-matter";
@@ -86,7 +87,7 @@ export default function Post({ params }: any) {
                     </div>
                     <MDXRemote
                         source={props.content}
-                        components={{ Image: (props) => <Image {...props} /> }}
+                        components={{ Image: (props) => <Image {...props} />, a: MdxLink }}
                         options={options as any}
                     />
                 </article>

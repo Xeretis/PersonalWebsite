@@ -17,7 +17,7 @@ export const RssButton = () => {
     };
 
     return (
-        <Button variant="outline" id="rss-button" onClick={onClick}>
+        <Button variant="outline" onClick={onClick}>
             <span className="mr-2">
                 <Rss size="1rem" />
             </span>{" "}
