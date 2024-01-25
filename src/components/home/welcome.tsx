@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 
 export const Welcome = () => {
     return (
-        <Card className="max-w-full break-inside-avoid">
+        <Card className="max-w-full">
             <CardHeader>
                 <CardTitle>Welcome to my personal website!</CardTitle>
             </CardHeader>
@@ -11,7 +11,7 @@ export const Welcome = () => {
                     I'm glad you're here! If you'd like, go ahead and check out the other pages on this website to learn
                     more about me. Oh and here you can find some cards with even more information about me.
                 </p>
-                <p className="leading-7 mt-6">
+                <p className="mt-6 leading-7">
                     If you became interested in collaborating with me or just want to chat, feel free to contact me via
                     email (top left corner).
                 </p>

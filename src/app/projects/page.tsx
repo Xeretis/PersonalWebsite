@@ -147,12 +147,12 @@ export default function Projects() {
             <SiteNavigation />
             <div className="p-8 sm:p-16">
                 <h1 className="scroll-m-20 text-4xl font-bold tracking-tight lg:text-5xl">My projects</h1>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-10">
+                <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
                     {projects.map((project) => (
                         <ProjectCard key={project.name} project={project} />
                     ))}
                 </div>
-                <p className="leading-7 mt-6 font-mono">
+                <p className="mt-6 font-mono leading-7">
                     And that's just the tip of the iceberg. Check out my{" "}
                     <a className="underline" href="https://github.com/Xeretis?tab=repositories&type=source">
                         GitHub

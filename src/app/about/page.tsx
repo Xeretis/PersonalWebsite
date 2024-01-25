@@ -106,11 +106,11 @@ export default function About() {
                 <h1 className="scroll-m-20 text-4xl font-bold tracking-tight lg:text-5xl">About me</h1>
 
                 <div className="flex gap-8 max-sm:flex-col-reverse">
-                    <div className="flex-1 mt-10">
+                    <div className="mt-10 flex-1">
                         <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
                             <span className="font-mono text-muted-foreground">01.</span> Itroduction
                         </h2>
-                        <p className="leading-7 mt-6 font-mono">
+                        <p className="mt-6 font-mono leading-7">
                             I'm a high school student at Lovassy László Gimnázium in Hungary. I've been programming
                             since the age of 11 and currently I'm interested in full-stack web development. I'm usually
                             working with React on the front-end and ASP.NET Core or Laravel on the back-end, but I'm
@@ -120,7 +120,7 @@ export default function About() {
                         <h2 className="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
                             <span className="font-mono text-muted-foreground">02.</span> My hobbies
                         </h2>
-                        <p className="leading-7 mt-6 font-mono">
+                        <p className="mt-6 font-mono leading-7">
                             In my free time I like to do martial arts, watch series, do speedcubing (I average around 17
                             seconds on the 3x3x3 Rubik's cube) and of course I enjoy spending time with my friends. As a
                             martial art I do Brazilian Jiu Jitsu, but in the past I've also done Karate and Taekwondo
@@ -130,14 +130,14 @@ export default function About() {
                     <Image
                         src={portraitImage}
                         alt="Portrait"
-                        className="float-right max-sm:w-full max-sm:h-[60vh] h-[350px] w-[250px] rounded-lg object-cover mt-10 self-center"
+                        className="float-right mt-10 h-[350px] w-[250px] self-center rounded-lg object-cover max-sm:h-[60vh] max-sm:w-full"
                         priority
                     />
                 </div>
                 <h2 className="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
                     <span className="font-mono text-muted-foreground">03.</span> Technologies I use
                 </h2>
-                <div className="py-6 flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 py-6">
                     <Badge>ASP.NET Core</Badge>
                     <Badge>C#</Badge>
                     <Badge>Laravel</Badge>
@@ -149,7 +149,7 @@ export default function About() {
                     <Badge>REST APIs</Badge>
                     <Badge>Docker</Badge>
                 </div>
-                <p className="leading-7 text-muted-foreground font-mono">
+                <p className="font-mono leading-7 text-muted-foreground">
                     (Check out the home page for details on what tools I use with these technologies)
                 </p>
             </div>

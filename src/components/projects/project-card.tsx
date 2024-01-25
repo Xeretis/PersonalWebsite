@@ -39,8 +39,8 @@ export const ProjectCard = ({ project }: { project: Project }) => {
                         <DialogTitle>{project.name}</DialogTitle>
                     </DialogHeader>
                     {project.images && <ImageCarusel project={project} />}
-                    <p className="leading-7 font-mono">{project.description}</p>
-                    <p className="font-semibold -mb-2">Tags:</p>
+                    <p className="font-mono leading-7">{project.description}</p>
+                    <p className="-mb-2 font-semibold">Tags:</p>
                     <div className="flex flex-wrap gap-2">
                         {project.tags.map((tag) => (
                             <Badge key={tag}>{tag}</Badge>
@@ -48,8 +48,8 @@ export const ProjectCard = ({ project }: { project: Project }) => {
                     </div>
                     {(project.githubUrl || project.liveUrl) && (
                         <>
-                            <p className="font-semibold -mb-2">Links:</p>
-                            <div className="flex gap-4 flex-wrap">
+                            <p className="-mb-2 font-semibold">Links:</p>
+                            <div className="flex flex-wrap gap-4">
                                 {project.githubUrl && (
                                     <a href={project.githubUrl} target="_blank" onClick={(e) => e.stopPropagation()}>
                                         <Button variant="outline">
@@ -89,10 +89,10 @@ export const ProjectCard = ({ project }: { project: Project }) => {
                 <DrawerHeader className="text-left">
                     <DrawerTitle>{project.name}</DrawerTitle>
                 </DrawerHeader>
-                <div className="p-4 grid gap-4 overflow-x-auto">
+                <div className="grid gap-4 overflow-x-auto p-4">
                     {project.images && <ImageCarusel project={project} controls={false} />}
-                    <p className="leading-7 font-mono">{project.description}</p>
-                    <p className="font-semibold -mb-2">Tags:</p>
+                    <p className="font-mono leading-7">{project.description}</p>
+                    <p className="-mb-2 font-semibold">Tags:</p>
                     <div className="flex flex-wrap gap-2">
                         {project.tags.map((tag) => (
                             <Badge key={tag}>{tag}</Badge>
@@ -100,8 +100,8 @@ export const ProjectCard = ({ project }: { project: Project }) => {
                     </div>
                     {(project.githubUrl || project.liveUrl) && (
                         <>
-                            <p className="font-semibold -mb-2">Links:</p>
-                            <div className="flex gap-4 flex-wrap">
+                            <p className="-mb-2 font-semibold">Links:</p>
+                            <div className="flex flex-wrap gap-4">
                                 {project.githubUrl && (
                                     <a href={project.githubUrl} target="_blank" onClick={(e) => e.stopPropagation()}>
                                         <Button variant="outline">
@@ -141,8 +141,8 @@ const TriggerCard = ({ project }: { project: Project }) => {
                 <CardTitle className="truncate">{project.name}</CardTitle>
             </CardHeader>
             <CardContent>
-                <p className="leading-7 font-mono line-clamp-3">{project.description}</p>
-                <div className="flex flex-wrap gap-2 mt-4">
+                <p className="line-clamp-3 font-mono leading-7">{project.description}</p>
+                <div className="mt-4 flex flex-wrap gap-2">
                     {project.tags.map((tag) => (
                         <Badge key={tag} variant="secondary">
                             {tag}
@@ -152,7 +152,7 @@ const TriggerCard = ({ project }: { project: Project }) => {
             </CardContent>
             {(project.githubUrl || project.liveUrl) && (
                 <CardFooter>
-                    <div className="flex gap-4 flex-wrap">
+                    <div className="flex flex-wrap gap-4">
                         {project.githubUrl && (
                             <a href={project.githubUrl} target="_blank" onClick={(e) => e.stopPropagation()}>
                                 <Button variant="outline" size="icon">

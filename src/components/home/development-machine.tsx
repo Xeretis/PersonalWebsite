@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 
 export const DevelopmentMachine = () => {
     return (
-        <Card className="max-w-full break-inside-avoid">
+        <Card className="max-w-full">
             <CardHeader>
                 <CardTitle>My development machine is a...</CardTitle>
             </CardHeader>

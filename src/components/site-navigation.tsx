@@ -40,14 +40,14 @@ export const SiteNavigation = ({ absolute = false }: { absolute?: boolean }) => 
     return (
         <div
             className={
-                absolute ? "absolute top-4 left-4 right-4 flex justify-between z-10" : "w-full p-4 flex justify-between"
+                absolute ? "absolute inset-x-4 top-4 z-10 flex justify-between" : "flex w-full justify-between p-4"
             }
         >
             <div className="flex gap-2">
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>
                         <Button variant="ghost" size="icon">
-                            <Contact className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all" />
+                            <Contact className="size-[1.2rem] rotate-0 scale-100 transition-all" />
                             <span className="sr-only">My socials</span>
                         </Button>
                     </DropdownMenuTrigger>
@@ -73,7 +73,7 @@ export const SiteNavigation = ({ absolute = false }: { absolute?: boolean }) => 
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild className="sm:hidden">
                         <Button variant="ghost" size="icon">
-                            <Menu className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all" />
+                            <Menu className="size-[1.2rem] rotate-0 scale-100 transition-all" />
                             <span className="sr-only">Navigation</span>
                         </Button>
                     </DropdownMenuTrigger>

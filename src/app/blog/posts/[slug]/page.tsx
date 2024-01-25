@@ -106,25 +106,25 @@ export default function Post({ params }: any) {
             <SiteNavigation />
             <div className="p-8 sm:p-16">
                 <article
-                    className="prose dark:prose-invert custom-prose-headings prose-h1:scroll-m-20
-                        prose-h1:text-4xl prose-h1:font-bold prose-h1:tracking-tight
-                        prose-h1:lg:text-5xl prose-h2:scroll-m-20 prose-h2:border-b
+                    className="custom-prose-headings prose mx-auto dark:prose-invert
+                        prose-h1:scroll-m-20 prose-h1:text-4xl prose-h1:font-bold
+                        prose-h1:tracking-tight prose-h2:scroll-m-20 prose-h2:border-b
                         prose-h2:pb-2 prose-h2:text-3xl prose-h2:font-semibold
-                        prose-h2:tracking-tight prose-h2:first:mt-0 prose-h3:scroll-m-20
-                        prose-h3:text-2xl prose-h3:font-semibold prose-h3:tracking-tight
-                        prose-h3:mt-0 prose-h4:scroll-m-20 prose-h4:text-xl prose-h4:font-semibold
-                        prose-h4:tracking-tight prose-p:leading-7 prose-p:[&:not(:first-child)]:mt-6
-                        prose-blockquote:mt-6 prose-blockquote:border-l-2 prose-blockquote:pl-6
-                        prose-blockquote:italic prose-img:rounded-lg mx-auto"
+                        prose-h2:tracking-tight prose-h2:first:mt-0 prose-h3:mt-0
+                        prose-h3:scroll-m-20 prose-h3:text-2xl prose-h3:font-semibold
+                        prose-h3:tracking-tight prose-h4:scroll-m-20 prose-h4:text-xl prose-h4:font-semibold
+                        prose-h4:tracking-tight prose-p:leading-7 prose-blockquote:mt-6
+                        prose-blockquote:border-l-2 prose-blockquote:pl-6 prose-blockquote:italic
+                        prose-img:rounded-lg prose-h1:lg:text-5xl prose-p:[&:not(:first-child)]:mt-6"
                 >
                     <h1 className="not-prose scroll-m-20 text-4xl font-bold tracking-tight lg:text-5xl">
                         {post.frontmatter.title}
                     </h1>
-                    <div className="flex justify-between mt-2">
-                        <p className="not-prose leading-7 text-muted-foreground text-sm">
+                    <div className="mt-2 flex justify-between">
+                        <p className="not-prose text-sm leading-7 text-muted-foreground">
                             {readingDuration(post.content, { emoji: false })}
                         </p>
-                        <p className="not-prose leading-7 text-muted-foreground text-sm">
+                        <p className="not-prose text-sm leading-7 text-muted-foreground">
                             Published on:{" "}
                             {new Date(post.frontmatter.pubDate).toLocaleDateString("en-US", {
                                 year: "numeric",
@@ -139,9 +139,9 @@ export default function Post({ params }: any) {
                         options={options as any}
                     />
                 </article>
-                <div className="max-w-[65ch] mx-auto flex justify-between items-end mt-6">
+                <div className="mx-auto mt-6 flex max-w-[65ch] items-end justify-between">
                     <div className="flex-1">
-                        <p className="leading-7 text-muted-foreground text-sm">Tags:</p>
+                        <p className="text-sm leading-7 text-muted-foreground">Tags:</p>
                         <div className="flex flex-wrap gap-2">
                             {post.frontmatter.tags.map((tag: string) => (
                                 <Badge key={tag}>{tag}</Badge>

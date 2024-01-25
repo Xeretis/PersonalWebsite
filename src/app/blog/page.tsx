@@ -1,12 +1,9 @@
 import { Badge } from "@/components/ui/badge";
-import { Button } from "../../components/ui/button";
 import Link from "next/link";
 import { Metadata } from "next";
-import { Rss } from "lucide-react";
 import { RssButton } from "@/components/blog/rss-button";
 import { SiteNavigation } from "@/components/site-navigation";
 import fs from "fs";
-import generateRssFeed from "@/lib/rss";
 import matter from "gray-matter";
 import path from "path";
 
@@ -97,19 +94,19 @@ export default function Blog() {
                 <div className="mt-10 flex flex-col gap-8">
                     {posts.map((post) => (
                         <div className="w-full" key={post.slug}>
-                            <div className="flex justify-between overflow-hidden items-baseline gap-8">
+                            <div className="flex items-baseline justify-between gap-8 overflow-hidden">
                                 <div>
                                     <Link
                                         href={`/blog/posts/${post.slug}`}
-                                        className="scroll-m-20 text-lg sm:text-xl font-semibold tracking-tight first:mt-0 hover:underline leading-none"
+                                        className="scroll-m-20 text-lg font-semibold leading-none tracking-tight first:mt-0 hover:underline sm:text-xl"
                                     >
                                         {post.frontmatter.title}
                                     </Link>
                                     <div className="max-sm:hidden">
-                                        <p className="leading-7 font-mono text-muted-foreground mt-2 text-sm sm:text-base">
+                                        <p className="mt-2 font-mono text-sm leading-7 text-muted-foreground sm:text-base">
                                             {post.frontmatter.description}
                                         </p>
-                                        <div className="flex flex-wrap gap-2 mt-4">
+                                        <div className="mt-4 flex flex-wrap gap-2">
                                             {post.frontmatter.tags.map((tag: string) => (
                                                 <Badge key={tag}>{tag}</Badge>
                                             ))}
@@ -125,10 +122,10 @@ export default function Blog() {
                                 </p>
                             </div>
                             <div className="sm:hidden">
-                                <p className="leading-7 font-mono text-muted-foreground mt-2 text-sm sm:text-base">
+                                <p className="mt-2 font-mono text-sm leading-7 text-muted-foreground sm:text-base">
                                     {post.frontmatter.description}
                                 </p>
-                                <div className="flex flex-wrap gap-2 mt-4">
+                                <div className="mt-4 flex flex-wrap gap-2">
                                     {post.frontmatter.tags.map((tag: string) => (
                                         <Badge key={tag}>{tag}</Badge>
                                     ))}
@@ -137,7 +134,7 @@ export default function Blog() {
                         </div>
                     ))}
                 </div>
-                <p className="leading-7 mt-6 font-mono">
+                <p className="mt-6 font-mono leading-7">
                     Didn't find what you were looking for? Make sure to reach out to me through{" "}
                     <a href="mailto:ocskon@gmail.com" className="underline">
                         email

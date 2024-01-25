@@ -190,7 +190,7 @@ export default async function Home() {
 
     return (
         <>
-            <div className="relative h-screen flex justify-center items-center gap-16 p-8 max-md:flex-col">
+            <div className="relative flex h-screen items-center justify-center gap-16 p-8 max-md:flex-col">
                 <SiteNavigation absolute />
                 <Image
                     src={portraitImage}
@@ -201,19 +201,19 @@ export default async function Home() {
                     )}
                     priority
                 />
-                <div className="flex flex-col gap-4 max-w-[32rem]">
+                <div className="flex max-w-[32rem] flex-col gap-4">
                     <h1 className="scroll-m-20 text-4xl font-bold tracking-tight lg:text-5xl">Hi, I'm Ocskó Nándor</h1>
-                    <h2 className="text-muted-foreground leading-7 font-mono">
+                    <h2 className="font-mono leading-7 text-muted-foreground">
                         I'm a Hungarian student with a passion for full-stack web development.
                     </h2>
                 </div>
-                <div className="absolute bottom-5 left-0 right-0 w-full flex justify-center">
-                    <Link className="animate-bounce w-8 h-8" href="#widgets">
+                <div className="absolute inset-x-0 bottom-5 flex w-full justify-center">
+                    <Link className="size-8 animate-bounce" href="#widgets">
                         <ChevronsDown />
                     </Link>
                 </div>
             </div>
-            <div className="columns-1 md:columns-2 lg:columns-3 p-4" id="widgets">
+            <div className="columns-1 p-4 md:columns-2 lg:columns-3" id="widgets">
                 <div className="break-inside-avoid">
                     <Welcome />
                     <div className="h-4"></div>
@@ -237,7 +237,7 @@ export default async function Home() {
                 <FavoriteWebTechnology />
             </div>
             <div className="w-full p-4">
-                <p className="text-muted-foreground text-center">
+                <p className="text-center text-muted-foreground">
                     Designed and made by Ocskó Nándor using{" "}
                     <a className="font-medium underline" href="https://ui.shadcn.com" target="_blank">
                         shadcn/ui
