@@ -106,7 +106,7 @@ export default function Post({ params }: any) {
             <SiteNavigation />
             <div className="p-8 sm:p-16">
                 <article
-                    className="custom-prose-headings prose mx-auto dark:prose-invert
+                    className="prose mx-auto dark:prose-invert
                         prose-h1:scroll-m-20 prose-h1:text-4xl prose-h1:font-bold
                         prose-h1:tracking-tight prose-h2:scroll-m-20 prose-h2:border-b
                         prose-h2:pb-2 prose-h2:text-3xl prose-h2:font-semibold

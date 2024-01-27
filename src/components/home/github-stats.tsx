@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 
 export const GithubStats = ({ userData }: { userData: any }) => {
     return (
-        <Card className="max-w-full">
+        <Card className="max-w-full break-inside-avoid">
             <CardHeader>
                 <CardTitle>My Github stats</CardTitle>
             </CardHeader>

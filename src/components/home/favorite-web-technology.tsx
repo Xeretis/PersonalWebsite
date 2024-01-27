@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 
 export const FavoriteWebTechnology = () => {
     return (
-        <Card className="max-w-full">
+        <Card className="max-w-full break-inside-avoid">
             <CardHeader>
                 <CardTitle>My overall favorite web technology is...</CardTitle>
             </CardHeader>

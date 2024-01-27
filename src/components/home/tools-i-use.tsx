@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 
 export const ToolsIUse = () => {
     return (
-        <Card className="max-w-full">
+        <Card className="max-w-full break-inside-avoid">
             <CardHeader>
                 <CardTitle>Tools I use</CardTitle>
             </CardHeader>
