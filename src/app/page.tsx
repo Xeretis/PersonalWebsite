@@ -226,10 +226,12 @@ export default async function Home() {
                     <DevelopmentMachine />
                     <div className="h-4"></div>
                 </div>
-                <div className="break-inside-avoid">
-                    <SpotifyNowPlaying spotifyData={spotifyData} />
-                    <div className="h-4"></div>
-                </div>
+                {spotifyData && (
+                    <div className="break-inside-avoid">
+                        <SpotifyNowPlaying spotifyData={spotifyData} />
+                        <div className="h-4"></div>
+                    </div>
+                )}
                 <div className="break-inside-avoid">
                     <ToolsIUse />
                     <div className="h-4"></div>
