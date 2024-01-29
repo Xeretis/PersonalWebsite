@@ -69,16 +69,31 @@ export default function Blog() {
                 "@type": "Person",
                 name: "Ocskó Nándor",
                 url: site_url,
+                sameAs: [
+                    "https://www.linkedin.com/in/ocsk%C3%B3-n%C3%A1ndor-a81183262/",
+                    "https://https://github.com/xeretis",
+                    `${site_url}/about`,
+                ],
             },
             creator: {
                 "@type": "Person",
                 name: "Ocskó Nándor",
                 url: site_url,
+                sameAs: [
+                    "https://www.linkedin.com/in/ocsk%C3%B3-n%C3%A1ndor-a81183262/",
+                    "https://https://github.com/xeretis",
+                    `${site_url}/about`,
+                ],
             },
             publisher: {
                 "@type": "Person",
                 name: "Ocskó Nándor",
                 url: site_url,
+                sameAs: [
+                    "https://www.linkedin.com/in/ocsk%C3%B3-n%C3%A1ndor-a81183262/",
+                    "https://https://github.com/xeretis",
+                    `${site_url}/about`,
+                ],
             },
         })),
     };
