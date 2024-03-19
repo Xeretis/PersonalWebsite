@@ -108,7 +108,7 @@ export default function About() {
                 <div className="flex gap-8 max-sm:flex-col-reverse">
                     <div className="mt-10 flex-1">
                         <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
-                            <span className="font-mono text-muted-foreground">01.</span> Itroduction
+                            <span className="font-mono text-muted-foreground">01.</span> Introduction
                         </h2>
                         <p className="mt-6 font-mono leading-7">
                             I'm a high school student at Lovassy László Gimnázium in Hungary. I've been programming
