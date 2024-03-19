@@ -35,21 +35,21 @@ export default function Projects() {
             name: "QrTagger",
             description:
                 "A web application that makes it easier for anyone that finds yout lost items to return them to you. It allows you to create QR codes that contain your contact information and anyone that scans them can instantly share thier location with you.",
-            tags: ["Laravel", "Livewire", "Filament", "Tailwind CSS", "Alpine.js"],
+            tags: ["Laravel", "Livewire", "Filament", "Tailwind CSS"],
             githubUrl: "https://github.com/Xeretis/QrTagger",
         },
         {
             name: "DavidikumApp",
             description:
                 "A web application for the students at Davidikum Kollégium, Veszprém. It's main feature is meal cancellations but it is actively being developed with more and more new features to come.",
-            tags: ["Laravel", "Livewire", "Filament", "Tailwind CSS", "Alpine.js"],
+            tags: ["Laravel", "Livewire", "Filament", "Tailwind CSS"],
             githubUrl: "https://github.com/Xeretis/DavidikumApp",
         },
         {
             name: "Hermes",
             description:
                 "A web application and a mobile app that makes it a breeze to manage and organize sports competitons with a lot of the tasks automated and also with real time updates for everyone participating of following along.",
-            tags: ["Laravel", "Livewire", "Filament", "Tailwind CSS", "Alpine.js", "React Native"],
+            tags: ["Laravel", "Livewire", "Filament", "Tailwind CSS", "React Native"],
             githubUrl: "https://github.com/Xeretis/Hermes",
             images: [hermes1Image, hermes2Image, hermes3Image],
         },
@@ -57,7 +57,7 @@ export default function Projects() {
             name: "Docsharing",
             description:
                 'A platform for sharing documents with others by uploading them to a "space" which can be accessed by anyone with a link or code that can even be time limited. This was my first laravel project.',
-            tags: ["Laravel", "Livewire", "Tailwind CSS", "Alpine.js"],
+            tags: ["Laravel", "Livewire", "Tailwind CSS"],
             githubUrl: "https://github.com/Xeretis/Docsharing",
             images: [docsharing1Image],
         },
