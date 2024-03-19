@@ -3,6 +3,9 @@ import { ProjectCard } from "@/components/projects/project-card";
 import { SiteNavigation } from "@/components/site-navigation";
 import dayGuesser1Image from "@/assets/projects/DayGuesser1.png";
 import docsharing1Image from "@/assets/projects/Docsharing1.png";
+import hermes1Image from "@/assets/projects/Hermes1.png";
+import hermes2Image from "@/assets/projects/Hermes2.png";
+import hermes3Image from "@/assets/projects/Hermes3.png";
 import lovassyApp1Image from "@/assets/projects/LovassyApp1.png";
 import lovassyApp2Image from "@/assets/projects/LovassyApp2.png";
 import lovassyApp3Image from "@/assets/projects/LovassyApp3.png";
@@ -41,6 +44,14 @@ export default function Projects() {
                 "A web application for the students at Davidikum Kollégium, Veszprém. It's main feature is meal cancellations but it is actively being developed with more and more new features to come.",
             tags: ["Laravel", "Livewire", "Filament", "Tailwind CSS", "Alpine.js"],
             githubUrl: "https://github.com/Xeretis/DavidikumApp",
+        },
+        {
+            name: "Hermes",
+            description:
+                "A web application and a mobile app that makes it a breeze to manage and organize sports competitons with a lot of the tasks automated and also with real time updates for everyone participating of following along.",
+            tags: ["Laravel", "Livewire", "Filament", "Tailwind CSS", "Alpine.js", "React Native"],
+            githubUrl: "https://github.com/Xeretis/Hermes",
+            images: [hermes1Image, hermes2Image, hermes3Image],
         },
         {
             name: "Docsharing",
