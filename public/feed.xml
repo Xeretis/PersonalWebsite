@@ -9,10 +9,17 @@
             <link>http://localhost:3000</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Tue, 19 Mar 2024 12:30:54 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 30 Mar 2024 20:19:08 GMT</lastBuildDate>
         <atom:link href="http://localhost:3000/feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Tue, 19 Mar 2024 12:30:54 GMT</pubDate>
+        <pubDate>Sat, 30 Mar 2024 20:19:08 GMT</pubDate>
         <copyright><![CDATA[All rights reserved 2024]]></copyright>
+        <item>
+            <title><![CDATA[ASP.NET Core - Changing the OpenApi type of a class property]]></title>
+            <description><![CDATA[See how you can change the type of a property that you defined in the generated OpenApi documentation for an ASP.NET Core API. This is particularly useful if you have a custom model binder for the type of the property.]]></description>
+            <link>http://localhost:3000/posts/asp-net-core-changing-the-openapi-type-of-a-class-property</link>
+            <guid isPermaLink="true">http://localhost:3000/posts/asp-net-core-changing-the-openapi-type-of-a-class-property</guid>
+            <pubDate>Mon, 22 Jan 2024 00:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[Getting started with the MVC pattern]]></title>
             <description><![CDATA[Learn the basics of the MVC pattern and get a feel for how it works. This blog post is for you if you are completely new to MVC or to web development in general.]]></description>

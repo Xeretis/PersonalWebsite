@@ -1,0 +1,53 @@
+---
+title: "ASP.NET Core - Changing the OpenApi type of a class"
+pubDate: 2024-03-30
+description: "See how you can change the type of a property that you defined in the generated OpenApi documentation for an ASP.NET Core API. This is particularly useful if you have a custom model binder for the type of the property."
+tags: ["Web Development", "Backend", "ASP.NET Core"]
+---
+
+So you have an ASP.NET Core API and you're using the [Swashbuckle](https://learn.microsoft.com/en-us/aspnet/core/tutorials/getting-started-with-swashbuckle?view=aspnetcore-8.0&tabs=visual-studio) library to generate an OpenApi documentation for it and let's say you also have a custom type that you want to represent differently (than an object containing its properties) in the OpenApi spec.
+
+Now if that's not the case and you're asking yourself why would you ever want to do that, let me give you an example. Let's say you use tokens for email verification as a **query parameter** and these tokens are basically just encrypted objects containing some kind of information (like the user id or the email address). Now to make handling and validating these tokens easier, **you could create a class that represents the token** and has it's decrypted value as a property. For this class you can create a **custom model binder** that decrypts the token and creates an instance of the class. Now you want to use this class as a **parameter in your controller method** and you want to document it in the OpenApi spec but you don't want to show the properties of the class in the OpenApi spec, you just want to show the type as a string because that's its encrypted form.
+
+See how this would make handling tokens easier? You no longer have repetitve code at the start of each controller method that decrypts the token because you have a custom model binder that does that for you. Now of course it's also important to note, that this is only really valuable if you have many different endpoints that use tokens and not just the email verification endpoint that I brought as an example.
+
+*If you don't understand how the custom model binder comes into play, I suggest you check out the [official documentation](https://learn.microsoft.com/en-us/aspnet/core/mvc/advanced/custom-model-binding?view=aspnetcore-8.0) on model binding.*
+
+## The solution
+
+With all that introduction out of the way, let's get to the solution. To change the type of a property in the OpenApi spec, you can use the `MapType` method of the `SwaggerGenOptions` class. This method allows you to change the type of a property in the OpenApi spec. Here's how you can use it:
+
+```csharp
+// somwhere in your Program.cs
+services.AddSwaggerGen(config =>
+{
+    //...
+    config.MapType(typeof(EncryptedToken<>), () => new OpenApiSchema { Type = "string" });
+});
+```
+
+You would think that's all right? Well, no it's not. If you check your OpenApi spec now, you will see that the type of the property is still an object. This is because you not only have to define the mapping, you also have to provide a `TypeConverter` for the type, that confirms that it can indeed be converted from a `string` in our case. Here's how you can do that:
+
+```csharp
+[TypeConverter(typeof(EncryptedTokenTypeConverter))]
+public class EncryptedToken<T> {
+    //...
+}
+
+public class EncryptedTokenTypeConverter : TypeConverter
+{
+    public override bool CanConvertFrom(ITypeDescriptorContext? context, Type sourceType)
+    {
+        if (sourceType == typeof(string)) return true;
+        return base.CanConvertFrom(context, sourceType);
+    }
+}
+```
+
+This is absolutely necessary for the `MapType` method to work but sadly it's not clearly documented anywhere, and that's exactly the reason why I'm writing this article. Now if you check your OpenApi spec again, you will see that the type of the property is now a string.
+
+## Conclusion
+
+And that's it, with the `TypeConverter` in place, everything should be working now! I hope I could save you some time and frustration with this article.
+
+*Please note that the type converter in my example doesn't actually do any conversion, as type converters usually do. It's sole purpose is to make the OpenApi type mapping work.*
