@@ -115,7 +115,7 @@ export default function About() {
                             since the age of 11 and currently I'm interested in full-stack web development. I'm usually
                             working with React on the front-end and ASP.NET Core or Laravel on the back-end, but I'm
                             always interested in trying something new as I'm always looking for new challenges. I
-                            beleive the best way to learn is to build something, so I'm always working on new projects.
+                            believe the best way to learn is to build something, so I'm always working on new projects.
                         </p>
                         <h2 className="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
                             <span className="font-mono text-muted-foreground">02.</span> My hobbies
