@@ -34,7 +34,7 @@ export default function Projects() {
         {
             name: "QrTagger",
             description:
-                "A web application that makes it easier for anyone that finds yout lost items to return them to you. It allows you to create QR codes that contain your contact information and anyone that scans them can instantly share thier location with you.",
+                "A web application that makes it easier for anyone that finds your lost items to return them to you. It allows you to create QR codes that contain your contact information and anyone that scans them can instantly share their location with you.",
             tags: ["Laravel", "Livewire", "Filament", "Tailwind CSS"],
             githubUrl: "https://github.com/Xeretis/QrTagger",
         },
@@ -48,7 +48,7 @@ export default function Projects() {
         {
             name: "Hermes",
             description:
-                "A web application and a mobile app that makes it a breeze to manage and organize sports competitons with a lot of the tasks automated and also with real time updates for everyone participating of following along.",
+                "A web application and a mobile app that makes it a breeze to manage and organize sports competitions with a lot of the tasks automated and also with real time updates for everyone participating of following along.",
             tags: ["Laravel", "Livewire", "Filament", "Tailwind CSS", "React Native"],
             githubUrl: "https://github.com/Xeretis/Hermes",
             images: [hermes1Image, hermes2Image, hermes3Image],
@@ -62,9 +62,9 @@ export default function Projects() {
             images: [docsharing1Image],
         },
         {
-            name: "CreativeScieneceTournament",
+            name: "CreativeScienceTournament",
             description:
-                "A web application for the KTTV competition. It allows teams of students to register, view exercises and submit their solutions and view the global leaderboard. It also provides judges with a simple interface for grading. Won 2nd place at the 2023 Neuman János Intrenational Software Product Competition.",
+                "A web application for the KTTV competition. It allows teams of students to register, view exercises and submit their solutions and view the global leaderboard. It also provides judges with a simple interface for grading. Won 2nd place at the 2023 Neuman János International Software Product Competition.",
             tags: ["ASP.NET Core", "React", "Typescript", "Mantine"],
             githubUrl: "https://github.com/Xeretis/CreativeScienceTournament",
         },
@@ -124,7 +124,7 @@ export default function Projects() {
         {
             name: "ArrowMenu",
             description:
-                "A simple and easy to use library for creating console menus with arrow navigation in C++. It provides utilities for creating all sorts of different menu items, like cyclable lists, submenues and a lot more.",
+                "A simple and easy to use library for creating console menus with arrow navigation in C++. It provides utilities for creating all sorts of different menu items, like cyclable lists, submenus and a lot more.",
             tags: ["C++", "Windows"],
             githubUrl: "https://github.com/Xeretis/ArrowMenu",
         },
