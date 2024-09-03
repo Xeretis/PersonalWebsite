@@ -129,7 +129,7 @@ export const ProjectCard = ({ project }: { project: Project }) => {
                             <p className="-mb-2 font-semibold">Links:</p>
                             <div className="flex flex-wrap gap-4">
                                 {project.githubUrl && (
-                                    <a href={project.githubUrl} target="_blank" o>
+                                    <a href={project.githubUrl} target="_blank">
                                         <Button
                                             variant="outline"
                                             data-umami-event="project-github-button"
