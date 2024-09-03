@@ -168,14 +168,14 @@ export default function Projects() {
                 </div>
                 <p className="mt-6 font-mono leading-7">
                     And that's just the tip of the iceberg. Check out my{" "}
-                    <button data-umami-event="projects-personal-github-button">
-                        <a
-                            className="underline"
-                            href="https://github.com/Xeretis?tab=repositories&type=source"
-                        >
-                            GitHub
-                        </a>
-                    </button>{" "}
+                    <a
+                        className="underline"
+                        href="https://github.com/Xeretis?tab=repositories&type=source"
+                        // @ts-ignore
+                        onClick={() => window.umami.track("rojects-personal-github-button")}
+                    >
+                        GitHub
+                    </a>{" "}
                     for more! Oh and just click on the cards to see more about the projects.
                 </p>
             </div>
