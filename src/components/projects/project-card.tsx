@@ -43,7 +43,12 @@ export const ProjectCard = ({ project }: { project: Project }) => {
         return (
             <Dialog open={open} onOpenChange={setOpen}>
                 <DialogTrigger asChild>
-                    <div data-umami-event="project-open" data-umami-event-project={project.name}>
+                    <div
+                        onClick={() =>
+                            /* @ts-ignore */
+                            window.umami.track("project-open", { project: project.name })
+                        }
+                    >
                         <TriggerCard project={project} />
                     </div>
                 </DialogTrigger>
@@ -64,14 +69,12 @@ export const ProjectCard = ({ project }: { project: Project }) => {
                             <p className="-mb-2 font-semibold">Links:</p>
                             <div className="flex flex-wrap gap-4">
                                 {project.githubUrl && (
-                                    <a
-                                        href={project.githubUrl}
-                                        target="_blank"
-                                        data-umami-event="project-github-button"
-                                        data-umami-event-project={project.name}
-                                        onClick={(e) => e.stopPropagation()}
-                                    >
-                                        <Button variant="outline">
+                                    <a href={project.githubUrl} target="_blank">
+                                        <Button
+                                            variant="outline"
+                                            data-umami-event="project-github-button"
+                                            data-umami-event-project={project.name}
+                                        >
                                             <span className="mr-2">
                                                 <Github size="1rem" />
                                             </span>
@@ -80,13 +83,12 @@ export const ProjectCard = ({ project }: { project: Project }) => {
                                     </a>
                                 )}
                                 {project.liveUrl && (
-                                    <a
-                                        href={project.liveUrl}
-                                        data-umami-event="project-live-button"
-                                        data-umami-event-project={project.name}
-                                        target="_blank"
-                                    >
-                                        <Button variant="default">
+                                    <a href={project.liveUrl} target="_blank">
+                                        <Button
+                                            variant="default"
+                                            data-umami-event="project-live-button"
+                                            data-umami-event-project={project.name}
+                                        >
                                             <span className="mr-2">
                                                 <ExternalLink size="1rem" />
                                             </span>
@@ -127,14 +129,12 @@ export const ProjectCard = ({ project }: { project: Project }) => {
                             <p className="-mb-2 font-semibold">Links:</p>
                             <div className="flex flex-wrap gap-4">
                                 {project.githubUrl && (
-                                    <a
-                                        href={project.githubUrl}
-                                        data-umami-event="project-github-button"
-                                        data-umami-event-project={project.name}
-                                        target="_blank"
-                                        onClick={(e) => e.stopPropagation()}
-                                    >
-                                        <Button variant="outline">
+                                    <a href={project.githubUrl} target="_blank" o>
+                                        <Button
+                                            variant="outline"
+                                            data-umami-event="project-github-button"
+                                            data-umami-event-project={project.name}
+                                        >
                                             <span className="mr-2">
                                                 <Github size="1rem" />
                                             </span>
@@ -143,13 +143,12 @@ export const ProjectCard = ({ project }: { project: Project }) => {
                                     </a>
                                 )}
                                 {project.liveUrl && (
-                                    <a
-                                        href={project.liveUrl}
-                                        data-umami-event="project-live-button"
-                                        data-umami-event-project={project.name}
-                                        target="_blank"
-                                    >
-                                        <Button variant="default">
+                                    <a href={project.liveUrl} target="_blank">
+                                        <Button
+                                            variant="default"
+                                            data-umami-event="project-live-button"
+                                            data-umami-event-project={project.name}
+                                        >
                                             <span className="mr-2">
                                                 <ExternalLink size="1rem" />
                                             </span>
@@ -189,14 +188,14 @@ const TriggerCard = ({ project }: { project: Project }) => {
                 <CardFooter>
                     <div className="flex flex-wrap gap-4">
                         {project.githubUrl && (
-                            <a
-                                href={project.githubUrl}
-                                target="_blank"
-                                onClick={(e) => e.stopPropagation()}
-                                data-umami-event="project-github-button"
-                                data-umami-event-project={project.name}
-                            >
-                                <Button variant="outline" size="icon">
+                            <a href={project.githubUrl} target="_blank">
+                                <Button
+                                    variant="outline"
+                                    size="icon"
+                                    onClick={(e) => e.stopPropagation()}
+                                    data-umami-event="project-github-button"
+                                    data-umami-event-project={project.name}
+                                >
                                     <Github />
                                     <span className="sr-only">Github</span>
                                 </Button>

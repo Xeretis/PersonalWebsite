@@ -171,9 +171,8 @@ export default function Projects() {
                     <a
                         className="underline"
                         href="https://github.com/Xeretis?tab=repositories&type=source"
-                        data-umami-event="projects-personal-github-button"
                     >
-                        GitHub
+                        <button data-umami-event="projects-personal-github-button">GitHub</button>
                     </a>{" "}
                     for more! Oh and just click on the cards to see more about the projects.
                 </p>
