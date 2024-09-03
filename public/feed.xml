@@ -2,36 +2,36 @@
     <channel>
         <title><![CDATA[Blog posts | Ocskó Nándor]]></title>
         <description><![CDATA[Welcome to my blog! I post here ocassionally about web development, my projects, IT related stuff and many other things.]]></description>
-        <link>http://localhost:3000</link>
+        <link>https://xeretis.me</link>
         <image>
-            <url>http://localhost:3000/logo.png</url>
+            <url>https://xeretis.me/logo.png</url>
             <title>Blog posts | Ocskó Nándor</title>
-            <link>http://localhost:3000</link>
+            <link>https://xeretis.me</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Sat, 30 Mar 2024 20:19:08 GMT</lastBuildDate>
-        <atom:link href="http://localhost:3000/feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Sat, 30 Mar 2024 20:19:08 GMT</pubDate>
+        <lastBuildDate>Thu, 29 Aug 2024 18:40:33 GMT</lastBuildDate>
+        <atom:link href="https://xeretis.me/feed.xml" rel="self" type="application/rss+xml"/>
+        <pubDate>Thu, 29 Aug 2024 18:40:33 GMT</pubDate>
         <copyright><![CDATA[All rights reserved 2024]]></copyright>
         <item>
-            <title><![CDATA[ASP.NET Core - Changing the OpenApi type of a class property]]></title>
+            <title><![CDATA[ASP.NET Core - Changing the OpenApi type of a class]]></title>
             <description><![CDATA[See how you can change the type of a property that you defined in the generated OpenApi documentation for an ASP.NET Core API. This is particularly useful if you have a custom model binder for the type of the property.]]></description>
-            <link>http://localhost:3000/posts/asp-net-core-changing-the-openapi-type-of-a-class-property</link>
-            <guid isPermaLink="true">http://localhost:3000/posts/asp-net-core-changing-the-openapi-type-of-a-class-property</guid>
-            <pubDate>Mon, 22 Jan 2024 00:00:00 GMT</pubDate>
+            <link>https://xeretis.me/posts/asp-net-core-changing-the-openapi-type-of-a-class</link>
+            <guid isPermaLink="true">https://xeretis.me/posts/asp-net-core-changing-the-openapi-type-of-a-class</guid>
+            <pubDate>Sat, 30 Mar 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Getting started with the MVC pattern]]></title>
             <description><![CDATA[Learn the basics of the MVC pattern and get a feel for how it works. This blog post is for you if you are completely new to MVC or to web development in general.]]></description>
-            <link>http://localhost:3000/posts/getting-started-with-the-mvc-pattern</link>
-            <guid isPermaLink="true">http://localhost:3000/posts/getting-started-with-the-mvc-pattern</guid>
+            <link>https://xeretis.me/posts/getting-started-with-the-mvc-pattern</link>
+            <guid isPermaLink="true">https://xeretis.me/posts/getting-started-with-the-mvc-pattern</guid>
             <pubDate>Mon, 22 Jan 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[The evolution of my portfolio website]]></title>
             <description><![CDATA[Ayy! Welcome to my new portfolio/personal website. In this blog post I'm going to go over the evolution of my portfolio website and how it got to where it is today.]]></description>
-            <link>http://localhost:3000/posts/the-evolution-of-my-portfolio-website</link>
-            <guid isPermaLink="true">http://localhost:3000/posts/the-evolution-of-my-portfolio-website</guid>
+            <link>https://xeretis.me/posts/the-evolution-of-my-portfolio-website</link>
+            <guid isPermaLink="true">https://xeretis.me/posts/the-evolution-of-my-portfolio-website</guid>
             <pubDate>Sun, 21 Jan 2024 00:00:00 GMT</pubDate>
         </item>
     </channel>

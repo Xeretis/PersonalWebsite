@@ -58,9 +58,9 @@ async function getGithubData() {
 }
 
 const getSpotifyData = async () => {
-    const basicAuth = Buffer.from(`${process.env.SPOTIFY_CLIENT_ID}:${process.env.SPOTIFY_CLIENT_SECRET}`).toString(
-        "base64"
-    );
+    const basicAuth = Buffer.from(
+        `${process.env.SPOTIFY_CLIENT_ID}:${process.env.SPOTIFY_CLIENT_SECRET}`,
+    ).toString("base64");
 
     const params = new URLSearchParams();
     params.append("grant_type", "refresh_token");
@@ -96,7 +96,8 @@ export const metadata: Metadata = {
         "Hi, I'm Ocskó Nándor. This is my portfolio page. If you are interested in contacting me or you want to see what I do, you're in the right place.",
 };
 
-const site_url = process.env.NODE_ENV === "production" ? "https://xeretis.me" : "http://localhost:3000";
+const site_url =
+    process.env.NODE_ENV === "production" ? "https://xeretis.me" : "http://localhost:3000";
 
 export default async function Home() {
     const githubUserData = await getGithubData();
@@ -197,12 +198,14 @@ export default async function Home() {
                     alt="Portrait"
                     className={cn(
                         "h-[200px] w-[200px] lg:h-[400px] lg:w-[400px] object-cover",
-                        styles["portrait-image"]
+                        styles["portrait-image"],
                     )}
                     priority
                 />
                 <div className="flex max-w-[32rem] flex-col gap-4">
-                    <h1 className="scroll-m-20 text-4xl font-bold tracking-tight lg:text-5xl">Hi, I'm Ocskó Nándor</h1>
+                    <h1 className="scroll-m-20 text-4xl font-bold tracking-tight lg:text-5xl">
+                        Hi, I'm Ocskó Nándor
+                    </h1>
                     <h2 className="font-mono leading-7 text-muted-foreground">
                         I'm a Hungarian student with a passion for full-stack web development.
                     </h2>
@@ -241,7 +244,11 @@ export default async function Home() {
             <div className="w-full p-4">
                 <p className="text-center text-muted-foreground">
                     Designed and made by Ocskó Nándor using{" "}
-                    <a className="font-medium underline" href="https://ui.shadcn.com" target="_blank">
+                    <a
+                        className="font-medium underline"
+                        href="https://ui.shadcn.com"
+                        target="_blank"
+                    >
                         shadcn/ui
                     </a>{" "}
                     and{" "}
@@ -251,7 +258,10 @@ export default async function Home() {
                     .
                 </p>
             </div>
-            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
         </>
     );
 }

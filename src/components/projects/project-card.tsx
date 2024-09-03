@@ -1,9 +1,33 @@
 "use client";
 
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "../ui/card";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "../ui/carousel";
-import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "../ui/dialog";
-import { Drawer, DrawerClose, DrawerContent, DrawerHeader, DrawerTitle, DrawerTrigger } from "../ui/drawer";
+import {
+    Card,
+    CardContent,
+    CardFooter,
+    CardHeader,
+    CardTitle,
+} from "../ui/card";
+import {
+    Carousel,
+    CarouselContent,
+    CarouselItem,
+    CarouselNext,
+    CarouselPrevious,
+} from "../ui/carousel";
+import {
+    Dialog,
+    DialogContent,
+    DialogTitle,
+    DialogTrigger,
+} from "../ui/dialog";
+import {
+    Drawer,
+    DrawerClose,
+    DrawerContent,
+    DrawerHeader,
+    DrawerTitle,
+    DrawerTrigger,
+} from "../ui/drawer";
 import { ExternalLink, Github } from "lucide-react";
 import Image, { StaticImageData } from "next/image";
 
@@ -51,7 +75,11 @@ export const ProjectCard = ({ project }: { project: Project }) => {
                             <p className="-mb-2 font-semibold">Links:</p>
                             <div className="flex flex-wrap gap-4">
                                 {project.githubUrl && (
-                                    <a href={project.githubUrl} target="_blank" onClick={(e) => e.stopPropagation()}>
+                                    <a
+                                        href={project.githubUrl}
+                                        target="_blank"
+                                        onClick={(e) => e.stopPropagation()}
+                                    >
                                         <Button variant="outline">
                                             <span className="mr-2">
                                                 <Github size="1rem" />
@@ -90,7 +118,9 @@ export const ProjectCard = ({ project }: { project: Project }) => {
                     <DrawerTitle>{project.name}</DrawerTitle>
                 </DrawerHeader>
                 <div className="grid gap-4 overflow-x-auto p-4">
-                    {project.images && <ImageCarusel project={project} controls={false} />}
+                    {project.images && (
+                        <ImageCarusel project={project} controls={false} />
+                    )}
                     <p className="font-mono leading-7">{project.description}</p>
                     <p className="-mb-2 font-semibold">Tags:</p>
                     <div className="flex flex-wrap gap-2">
@@ -103,7 +133,11 @@ export const ProjectCard = ({ project }: { project: Project }) => {
                             <p className="-mb-2 font-semibold">Links:</p>
                             <div className="flex flex-wrap gap-4">
                                 {project.githubUrl && (
-                                    <a href={project.githubUrl} target="_blank" onClick={(e) => e.stopPropagation()}>
+                                    <a
+                                        href={project.githubUrl}
+                                        target="_blank"
+                                        onClick={(e) => e.stopPropagation()}
+                                    >
                                         <Button variant="outline">
                                             <span className="mr-2">
                                                 <Github size="1rem" />
@@ -141,7 +175,9 @@ const TriggerCard = ({ project }: { project: Project }) => {
                 <CardTitle className="truncate">{project.name}</CardTitle>
             </CardHeader>
             <CardContent>
-                <p className="line-clamp-3 font-mono leading-7">{project.description}</p>
+                <p className="line-clamp-3 font-mono leading-7">
+                    {project.description}
+                </p>
                 <div className="mt-4 flex flex-wrap gap-2">
                     {project.tags.map((tag) => (
                         <Badge key={tag} variant="secondary">
@@ -154,7 +190,11 @@ const TriggerCard = ({ project }: { project: Project }) => {
                 <CardFooter>
                     <div className="flex flex-wrap gap-4">
                         {project.githubUrl && (
-                            <a href={project.githubUrl} target="_blank" onClick={(e) => e.stopPropagation()}>
+                            <a
+                                href={project.githubUrl}
+                                target="_blank"
+                                onClick={(e) => e.stopPropagation()}
+                            >
                                 <Button variant="outline" size="icon">
                                     <Github />
                                     <span className="sr-only">Github</span>
@@ -163,7 +203,11 @@ const TriggerCard = ({ project }: { project: Project }) => {
                         )}
                         {project.liveUrl && (
                             <a href={project.liveUrl} target="_blank">
-                                <Button variant="default" size="icon" onClick={(e) => e.stopPropagation()}>
+                                <Button
+                                    variant="default"
+                                    size="icon"
+                                    onClick={(e) => e.stopPropagation()}
+                                >
                                     <ExternalLink />
                                     <span className="sr-only">Live</span>
                                 </Button>
@@ -176,14 +220,24 @@ const TriggerCard = ({ project }: { project: Project }) => {
     );
 };
 
-const ImageCarusel = ({ project, controls = true }: { project: Project; controls?: boolean }) => {
+const ImageCarusel = ({
+    project,
+    controls = true,
+}: {
+    project: Project;
+    controls?: boolean;
+}) => {
     return (
         <div className="flex flex-col items-center justify-center">
             <Carousel className="w-full max-w-xs">
                 <CarouselContent>
                     {project.images!.map((image, index) => (
                         <CarouselItem key={index}>
-                            <Image src={image} alt={"Project image showing " + project.name} className="rounded-lg" />
+                            <Image
+                                src={image}
+                                alt={"Project image showing " + project.name}
+                                className="rounded-lg"
+                            />
                         </CarouselItem>
                     ))}
                 </CarouselContent>
@@ -195,7 +249,9 @@ const ImageCarusel = ({ project, controls = true }: { project: Project; controls
                 )}
             </Carousel>
             {!controls && project.images!.length > 1 && (
-                <p className="text-sm text-muted-foreground">Swipe sideways to see more</p>
+                <p className="text-sm text-muted-foreground">
+                    Swipe sideways to see more
+                </p>
             )}
         </div>
     );
