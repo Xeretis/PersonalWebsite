@@ -11,7 +11,10 @@ function getPosts() {
     const files = fs.readdirSync(path.join("src", "content", "posts"));
 
     const posts = files.map((filename) => {
-        const fileContents = fs.readFileSync(path.join("src", "content", "posts", filename), "utf-8");
+        const fileContents = fs.readFileSync(
+            path.join("src", "content", "posts", filename),
+            "utf-8"
+        );
 
         const { data } = matter(fileContents);
 
@@ -31,7 +34,8 @@ export const metadata: Metadata = {
     category: "technology",
 };
 
-const site_url = process.env.NODE_ENV === "production" ? "https://xeretis.me" : "http://localhost:3000";
+const site_url =
+    process.env.NODE_ENV === "production" ? "https://xeretis.me" : "http://localhost:3000";
 
 export default function Blog() {
     const posts = getPosts();
@@ -103,7 +107,9 @@ export default function Blog() {
             <SiteNavigation />
             <div className="p-8 sm:p-16">
                 <div className="flex flex-wrap justify-between gap-4">
-                    <h1 className="scroll-m-20 text-4xl font-bold tracking-tight lg:text-5xl">Blog</h1>
+                    <h1 className="scroll-m-20 text-4xl font-bold tracking-tight lg:text-5xl">
+                        Blog
+                    </h1>
                     <RssButton />
                 </div>
                 <div className="mt-10 flex flex-col gap-8">
@@ -114,6 +120,8 @@ export default function Blog() {
                                     <Link
                                         href={`/blog/posts/${post.slug}`}
                                         className="scroll-m-20 text-lg font-semibold leading-none tracking-tight first:mt-0 hover:underline sm:text-xl"
+                                        data-umami-event="blog-post-button"
+                                        data-umami-event-post={post.slug}
                                     >
                                         {post.frontmatter.title}
                                     </Link>
@@ -129,11 +137,14 @@ export default function Blog() {
                                     </div>
                                 </div>
                                 <p className="sm:text-lg">
-                                    {new Date(post.frontmatter.pubDate).toLocaleDateString("en-US", {
-                                        year: "numeric",
-                                        month: "2-digit",
-                                        day: "2-digit",
-                                    })}
+                                    {new Date(post.frontmatter.pubDate).toLocaleDateString(
+                                        "en-US",
+                                        {
+                                            year: "numeric",
+                                            month: "2-digit",
+                                            day: "2-digit",
+                                        }
+                                    )}
                                 </p>
                             </div>
                             <div className="sm:hidden">
@@ -151,13 +162,20 @@ export default function Blog() {
                 </div>
                 <p className="mt-6 font-mono leading-7">
                     Didn't find what you were looking for? Make sure to reach out to me through{" "}
-                    <a href="mailto:ocskon@gmail.com" className="underline">
+                    <a
+                        href="mailto:ocskon@gmail.com"
+                        className="underline"
+                        data-umami-event="blog-personal-email-button"
+                    >
                         email
                     </a>{" "}
                     with any questions or ideas!
                 </p>
             </div>
-            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
         </>
     );
 }

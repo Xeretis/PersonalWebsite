@@ -18,7 +18,8 @@ export const metadata: Metadata = {
         "Hi, I'm Ocskó Nándor. I mostly do full stack web development but here you can see my projects from all kinds IT fields.",
 };
 
-const site_url = process.env.NODE_ENV === "production" ? "https://xeretis.me" : "http://localhost:3000";
+const site_url =
+    process.env.NODE_ENV === "production" ? "https://xeretis.me" : "http://localhost:3000";
 
 export default function Projects() {
     const projects = [
@@ -157,7 +158,9 @@ export default function Projects() {
         <>
             <SiteNavigation />
             <div className="p-8 sm:p-16">
-                <h1 className="scroll-m-20 text-4xl font-bold tracking-tight lg:text-5xl">My projects</h1>
+                <h1 className="scroll-m-20 text-4xl font-bold tracking-tight lg:text-5xl">
+                    My projects
+                </h1>
                 <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
                     {projects.map((project) => (
                         <ProjectCard key={project.name} project={project} />
@@ -165,13 +168,20 @@ export default function Projects() {
                 </div>
                 <p className="mt-6 font-mono leading-7">
                     And that's just the tip of the iceberg. Check out my{" "}
-                    <a className="underline" href="https://github.com/Xeretis?tab=repositories&type=source">
+                    <a
+                        className="underline"
+                        href="https://github.com/Xeretis?tab=repositories&type=source"
+                        data-umami-event="projects-personal-github-button"
+                    >
                         GitHub
                     </a>{" "}
                     for more! Oh and just click on the cards to see more about the projects.
                 </p>
             </div>
-            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
         </>
     );
 }

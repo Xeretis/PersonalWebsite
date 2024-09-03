@@ -59,7 +59,7 @@ async function getGithubData() {
 
 const getSpotifyData = async () => {
     const basicAuth = Buffer.from(
-        `${process.env.SPOTIFY_CLIENT_ID}:${process.env.SPOTIFY_CLIENT_SECRET}`,
+        `${process.env.SPOTIFY_CLIENT_ID}:${process.env.SPOTIFY_CLIENT_SECRET}`
     ).toString("base64");
 
     const params = new URLSearchParams();
@@ -198,7 +198,7 @@ export default async function Home() {
                     alt="Portrait"
                     className={cn(
                         "h-[200px] w-[200px] lg:h-[400px] lg:w-[400px] object-cover",
-                        styles["portrait-image"],
+                        styles["portrait-image"]
                     )}
                     priority
                 />
@@ -211,7 +211,11 @@ export default async function Home() {
                     </h2>
                 </div>
                 <div className="absolute inset-x-0 bottom-5 flex w-full justify-center">
-                    <Link className="size-8 animate-bounce" href="#widgets">
+                    <Link
+                        className="size-8 animate-bounce"
+                        href="#widgets"
+                        data-umami-event="home-scroll-down-button"
+                    >
                         <ChevronsDown />
                     </Link>
                 </div>
@@ -247,12 +251,18 @@ export default async function Home() {
                     <a
                         className="font-medium underline"
                         href="https://ui.shadcn.com"
+                        data-umami-event="shadcn-button"
                         target="_blank"
                     >
                         shadcn/ui
                     </a>{" "}
                     and{" "}
-                    <a className="font-medium underline" href="https://nextjs.org/" target="_blank">
+                    <a
+                        className="font-medium underline"
+                        href="https://nextjs.org/"
+                        data-umami-event="nextjs-button"
+                        target="_blank"
+                    >
                         Next.js
                     </a>
                     .

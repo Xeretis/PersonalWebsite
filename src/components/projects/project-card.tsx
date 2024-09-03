@@ -1,12 +1,6 @@
 "use client";
 
-import {
-    Card,
-    CardContent,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-} from "../ui/card";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "../ui/card";
 import {
     Carousel,
     CarouselContent,
@@ -14,12 +8,7 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "../ui/carousel";
-import {
-    Dialog,
-    DialogContent,
-    DialogTitle,
-    DialogTrigger,
-} from "../ui/dialog";
+import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "../ui/dialog";
 import {
     Drawer,
     DrawerClose,
@@ -118,9 +107,7 @@ export const ProjectCard = ({ project }: { project: Project }) => {
                     <DrawerTitle>{project.name}</DrawerTitle>
                 </DrawerHeader>
                 <div className="grid gap-4 overflow-x-auto p-4">
-                    {project.images && (
-                        <ImageCarusel project={project} controls={false} />
-                    )}
+                    {project.images && <ImageCarusel project={project} controls={false} />}
                     <p className="font-mono leading-7">{project.description}</p>
                     <p className="-mb-2 font-semibold">Tags:</p>
                     <div className="flex flex-wrap gap-2">
@@ -170,14 +157,18 @@ export const ProjectCard = ({ project }: { project: Project }) => {
 
 const TriggerCard = ({ project }: { project: Project }) => {
     return (
-        <Card className="cursor-pointer" role="button" aria-haspopup="true">
+        <Card
+            className="cursor-pointer"
+            role="button"
+            aria-haspopup="true"
+            data-umami-event="project-open"
+            data-umami-event-project={project.name}
+        >
             <CardHeader className="overflow-hidden">
                 <CardTitle className="truncate">{project.name}</CardTitle>
             </CardHeader>
             <CardContent>
-                <p className="line-clamp-3 font-mono leading-7">
-                    {project.description}
-                </p>
+                <p className="line-clamp-3 font-mono leading-7">{project.description}</p>
                 <div className="mt-4 flex flex-wrap gap-2">
                     {project.tags.map((tag) => (
                         <Badge key={tag} variant="secondary">
@@ -194,6 +185,8 @@ const TriggerCard = ({ project }: { project: Project }) => {
                                 href={project.githubUrl}
                                 target="_blank"
                                 onClick={(e) => e.stopPropagation()}
+                                data-umami-event="project-github-button"
+                                data-umami-event-project={project.name}
                             >
                                 <Button variant="outline" size="icon">
                                     <Github />
@@ -207,6 +200,8 @@ const TriggerCard = ({ project }: { project: Project }) => {
                                     variant="default"
                                     size="icon"
                                     onClick={(e) => e.stopPropagation()}
+                                    data-umami-event="project-live-button"
+                                    data-umami-event-project={project.name}
                                 >
                                     <ExternalLink />
                                     <span className="sr-only">Live</span>
@@ -220,13 +215,7 @@ const TriggerCard = ({ project }: { project: Project }) => {
     );
 };
 
-const ImageCarusel = ({
-    project,
-    controls = true,
-}: {
-    project: Project;
-    controls?: boolean;
-}) => {
+const ImageCarusel = ({ project, controls = true }: { project: Project; controls?: boolean }) => {
     return (
         <div className="flex flex-col items-center justify-center">
             <Carousel className="w-full max-w-xs">
@@ -249,9 +238,7 @@ const ImageCarusel = ({
                 )}
             </Carousel>
             {!controls && project.images!.length > 1 && (
-                <p className="text-sm text-muted-foreground">
-                    Swipe sideways to see more
-                </p>
+                <p className="text-sm text-muted-foreground">Swipe sideways to see more</p>
             )}
         </div>
     );
