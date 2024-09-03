@@ -171,8 +171,6 @@ export default function Projects() {
                     <a
                         className="underline"
                         href="https://github.com/Xeretis?tab=repositories&type=source"
-                        // @ts-ignore
-                        onClick={() => window.umami.track("rojects-personal-github-button")}
                     >
                         GitHub
                     </a>{" "}
