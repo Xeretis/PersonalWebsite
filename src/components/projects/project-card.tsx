@@ -43,7 +43,7 @@ export const ProjectCard = ({ project }: { project: Project }) => {
         return (
             <Dialog open={open} onOpenChange={setOpen}>
                 <DialogTrigger asChild>
-                    <div>
+                    <div data-umami-event="project-open" data-umami-event-project={project.name}>
                         <TriggerCard project={project} />
                     </div>
                 </DialogTrigger>
@@ -67,6 +67,8 @@ export const ProjectCard = ({ project }: { project: Project }) => {
                                     <a
                                         href={project.githubUrl}
                                         target="_blank"
+                                        data-umami-event="project-github-button"
+                                        data-umami-event-project={project.name}
                                         onClick={(e) => e.stopPropagation()}
                                     >
                                         <Button variant="outline">
@@ -78,7 +80,12 @@ export const ProjectCard = ({ project }: { project: Project }) => {
                                     </a>
                                 )}
                                 {project.liveUrl && (
-                                    <a href={project.liveUrl} target="_blank">
+                                    <a
+                                        href={project.liveUrl}
+                                        data-umami-event="project-live-button"
+                                        data-umami-event-project={project.name}
+                                        target="_blank"
+                                    >
                                         <Button variant="default">
                                             <span className="mr-2">
                                                 <ExternalLink size="1rem" />
@@ -122,6 +129,8 @@ export const ProjectCard = ({ project }: { project: Project }) => {
                                 {project.githubUrl && (
                                     <a
                                         href={project.githubUrl}
+                                        data-umami-event="project-github-button"
+                                        data-umami-event-project={project.name}
                                         target="_blank"
                                         onClick={(e) => e.stopPropagation()}
                                     >
@@ -134,7 +143,12 @@ export const ProjectCard = ({ project }: { project: Project }) => {
                                     </a>
                                 )}
                                 {project.liveUrl && (
-                                    <a href={project.liveUrl} target="_blank">
+                                    <a
+                                        href={project.liveUrl}
+                                        data-umami-event="project-live-button"
+                                        data-umami-event-project={project.name}
+                                        target="_blank"
+                                    >
                                         <Button variant="default">
                                             <span className="mr-2">
                                                 <ExternalLink size="1rem" />
@@ -157,13 +171,7 @@ export const ProjectCard = ({ project }: { project: Project }) => {
 
 const TriggerCard = ({ project }: { project: Project }) => {
     return (
-        <Card
-            className="cursor-pointer"
-            role="button"
-            aria-haspopup="true"
-            data-umami-event="project-open"
-            data-umami-event-project={project.name}
-        >
+        <Card className="cursor-pointer" role="button" aria-haspopup="true">
             <CardHeader className="overflow-hidden">
                 <CardTitle className="truncate">{project.name}</CardTitle>
             </CardHeader>
