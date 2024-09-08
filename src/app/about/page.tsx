@@ -153,9 +153,7 @@ export default function About() {
                         </li>
                         <li>
                             English: <span className="font-bold">C2</span>{" "}
-                            <span className="text-muted-foreground">
-                                (Cambridge Advanced Certified)
-                            </span>
+                            <span className="text-muted-foreground">(CAE Certified)</span>
                         </li>
                         <li>
                             German: <span className="font-bold">B2/C1</span>
