@@ -164,19 +164,19 @@ export default function About() {
                     </ul>
                     <div className="flex w-[250px] flex-col gap-1 max-md:mt-6 max-md:w-full">
                         <div className="flex items-center gap-4">
-                            <span>HU</span>
+                            <span className="text-muted-foreground">HU</span>
                             <Progress value={100} />
                         </div>
                         <div className="flex items-center gap-4">
-                            <span>EN</span>
+                            <span className="text-muted-foreground">EN</span>
                             <Progress value={95} />
                         </div>
                         <div className="flex items-center gap-4">
-                            <span className="">DE</span>
+                            <span className="text-muted-foreground">DE</span>
                             <Progress value={70} />
                         </div>
                         <div className="flex items-center gap-4">
-                            <span>FR</span>
+                            <span className="text-muted-foreground">FR</span>
                             <Progress value={65} />
                         </div>
                     </div>
