@@ -146,7 +146,7 @@ export default function About() {
                 <h2 className="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
                     <span className="font-mono text-muted-foreground">03.</span> My language skills
                 </h2>
-                <div className="mt-6 flex justify-between gap-8 max-md:flex-col">
+                <div className="mt-6 flex justify-between max-md:flex-col max-md:gap-6 md:gap-8">
                     <ul className="font-mono leading-7 [&>li]:before:mr-3 [&>li]:before:content-['-']">
                         <li>
                             Hungarian: <span className="font-bold">Native</span>
@@ -162,7 +162,7 @@ export default function About() {
                             French: <span className="font-bold">B2</span>
                         </li>
                     </ul>
-                    <div className="flex w-[250px] flex-col gap-1 max-md:mt-6 max-md:w-full">
+                    <div className="flex w-[250px] flex-col gap-1 max-md:w-full">
                         <div className="flex items-center gap-4">
                             <span className="text-muted-foreground">HU</span>
                             <Progress value={100} />
