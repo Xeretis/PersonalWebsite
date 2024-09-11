@@ -161,6 +161,10 @@ export default async function Home() {
                 "@type": "Thing",
                 name: "Docker",
             },
+            {
+                "@type": "Thing",
+                name: "Dokku",
+            },
         ],
         knowsLanguage: [
             {

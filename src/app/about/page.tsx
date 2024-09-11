@@ -72,6 +72,10 @@ export default function About() {
                 "@type": "Thing",
                 name: "Docker",
             },
+            {
+                "@type": "Thing",
+                name: "Dokku",
+            },
         ],
         knowsLanguage: [
             {
@@ -195,6 +199,7 @@ export default function About() {
                     <Badge>Tailwind CSS</Badge>
                     <Badge>REST APIs</Badge>
                     <Badge>Docker</Badge>
+                    <Badge>Dokku</Badge>
                 </div>
                 <p className="font-mono leading-7 text-muted-foreground">
                     (Check out the home page for details on what tools I use with these
