@@ -11,7 +11,7 @@ export const CheckOutOtherContnent = () => {
                 <CardTitle>Check out my projects!</CardTitle>
             </CardHeader>
             <CardContent>
-                <p className="mb-4 leading-7">
+                <p className="mb-6 leading-7">
                     To learn more about what I do just go and check out my projects. If you're at it
                     you might as well take a look at my about page too.
                 </p>
