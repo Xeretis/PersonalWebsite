@@ -1,3 +1,4 @@
+import { CheckOutOtherContnent } from "@/components/home/check-out-other-content";
 import { ChevronsDown } from "lucide-react";
 import { DevelopmentMachine } from "@/components/home/development-machine";
 import { FavoriteWebTechnology } from "@/components/home/favorite-web-technology";
@@ -229,8 +230,9 @@ export default async function Home() {
                     <GithubStats userData={githubUserData} />
                     <div className="h-4"></div>
                 </div>
+
                 <div className="break-inside-avoid">
-                    <DevelopmentMachine />
+                    <ToolsIUse />
                     <div className="h-4"></div>
                 </div>
                 {spotifyData && (
@@ -240,10 +242,14 @@ export default async function Home() {
                     </div>
                 )}
                 <div className="break-inside-avoid">
-                    <ToolsIUse />
+                    <DevelopmentMachine />
                     <div className="h-4"></div>
                 </div>
-                <FavoriteWebTechnology />
+                <div className="break-inside-avoid">
+                    <FavoriteWebTechnology />
+                    <div className="h-4"></div>
+                </div>
+                <CheckOutOtherContnent />
             </div>
             <div className="w-full p-4">
                 <p className="text-center text-muted-foreground">
