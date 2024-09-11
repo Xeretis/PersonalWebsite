@@ -24,7 +24,11 @@ function getPosts() {
         };
     });
 
-    return posts;
+    return posts.sort((p1, p2) => {
+        const d1: any = new Date(p1.frontmatter.pubDate);
+        const d2: any = new Date(p2.frontmatter.pubDate);
+        return d2 - d1;
+    });
 }
 
 export const metadata: Metadata = {
