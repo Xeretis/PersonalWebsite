@@ -203,12 +203,12 @@ export default async function Home() {
                     src={portraitImage}
                     alt="Portrait"
                     className={cn(
-                        "h-[200px] w-[200px] lg:h-[400px] lg:w-[400px] object-cover",
+                        "h-[200px] w-[200px] lg:h-[400px] lg:w-[400px] object-cover z-10",
                         styles["portrait-image"]
                     )}
                     priority
                 />
-                <div className="flex max-w-[32rem] flex-col gap-4">
+                <div className="z-10 flex max-w-[32rem] flex-col gap-4">
                     <h1 className="scroll-m-20 text-4xl font-bold tracking-tight lg:text-5xl">
                         Hi, I'm Ocskó Nándor
                     </h1>
