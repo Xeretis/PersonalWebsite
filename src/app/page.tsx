@@ -1,5 +1,6 @@
 import { CheckOutOtherContnent } from "@/components/home/check-out-other-content";
 import { ChevronsDown } from "lucide-react";
+import { ContactMe } from "@/components/home/contact-me";
 import { DevelopmentMachine } from "@/components/home/development-machine";
 import { FavoriteWebTechnology } from "@/components/home/favorite-web-technology";
 import { GithubStats } from "@/components/home/github-stats";
@@ -246,15 +247,19 @@ export default async function Home() {
                         <div className="h-4"></div>
                     </div>
                 )}
-                <div className="break-inside-avoid">
+                {/* <div className="break-inside-avoid">
                     <DevelopmentMachine />
                     <div className="h-4"></div>
-                </div>
+                </div> */}
                 <div className="break-inside-avoid">
                     <FavoriteWebTechnology />
                     <div className="h-4"></div>
                 </div>
-                <CheckOutOtherContnent />
+                <div className="break-inside-avoid">
+                    <CheckOutOtherContnent />
+                    <div className="h-4"></div>
+                </div>
+                <ContactMe />
             </div>
             <div className="w-full p-4">
                 <p className="text-center text-muted-foreground">
