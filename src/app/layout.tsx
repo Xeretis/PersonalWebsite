@@ -30,8 +30,8 @@ export default function RootLayout({
             <body className={GeistSans.className}>
                 <Script
                     defer
-                    src="https://umami.server.xeretis.me/script.js"
-                    data-website-id="3fd01ae6-e9c1-433b-ad5a-882a06337ef9"
+                    src="https://cloud.umami.is/script.js"
+                    data-website-id="9ed14374-fe9d-4f4e-816f-e6b8c11b236f"
                     data-domains="xeretis.me"
                 />
                 <ThemeProvider

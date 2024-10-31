@@ -18,7 +18,7 @@ export const ContactMe = () => {
                 <div className="flex w-full gap-4 [&>*]:flex-1">
                     <Button asChild>
                         <a
-                            href="mailto:ocskon@gmail.com"
+                            href="mailto:ocskon@pm.me"
                             data-umami-event="home-contact-me-email-button"
                         >
                             Contact me <MailIcon className="ml-2 size-4" />

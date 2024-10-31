@@ -25,7 +25,7 @@ export default function About() {
             "https://https://github.com/xeretis",
             site_url,
         ],
-        email: "ocskon@gmail.com",
+        email: "ocskon@pm.me",
         gender: "male",
         knowsAbout: [
             {

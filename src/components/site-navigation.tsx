@@ -80,7 +80,7 @@ export const SiteNavigation = ({ absolute = false }: { absolute?: boolean }) => 
                         <DropdownMenuLabel>Contact me</DropdownMenuLabel>
                         <DropdownMenuGroup>
                             <a
-                                href="mailto:ocskon@gmail.com"
+                                href="mailto:ocskon@pm.me"
                                 data-umami-event="navigation-personal-email-button"
                             >
                                 <DropdownMenuItem>Email</DropdownMenuItem>

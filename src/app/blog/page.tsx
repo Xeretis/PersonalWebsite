@@ -167,7 +167,7 @@ export default function Blog() {
                 <p className="mt-6 font-mono leading-7">
                     Didn't find what you were looking for? Make sure to reach out to me through{" "}
                     <a
-                        href="mailto:ocskon@gmail.com"
+                        href="mailto:ocskon@pm.me"
                         className="underline"
                         data-umami-event="blog-personal-email-button"
                     >
