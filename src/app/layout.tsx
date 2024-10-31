@@ -31,7 +31,7 @@ export default function RootLayout({
                 <Script
                     defer
                     src="https://cloud.umami.is/script.js"
-                    data-website-id="9ed14374-fe9d-4f4e-816f-e6b8c11b236f"
+                    data-website-id="8cbb6816-7625-4caa-a56d-2010f1fef8de"
                     data-domains="xeretis.me"
                 />
                 <ThemeProvider
