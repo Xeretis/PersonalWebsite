@@ -1,0 +1,100 @@
+---
+title: "The biggest step you can take towards online security"
+pubDate: 2024-10-31
+description: "Security in the cyberspace is an increasing concern for everyone. Learn about the simplest step you can take today to increase your security: using a password manager."
+tags: ["Internet usage", "Security", "Passwords"]
+---
+
+As we are nearing the end of October, the [cybersecurity awareness month](https://www.cisa.gov/cybersecurity-awareness-month), I thought I would take the chance to write about something 
+that's a little off topic for my blog: advice related to personal security online. 
+
+*Now please note that I am by no means a security expert; my aim is merely to raise awareness about the risks of bad habits 
+related to online accounts and offer an accessible solution. If you wish, you may consult an actual security expert to confirm my statements.*
+
+## The problem
+
+First of all, let's discuss what necessitates putting further thought into account security in general.
+
+For most people, the biggest danger is not targeted attacks. **It's a common misconception that one can only get hacked if a hacker specifically targets them.** One might argue that there is nothing of interest for hackers stored online about them, so there is no reason to worry about online security. However, in reality, **most malicious actors target the masses, not individuals.** 
+
+*It's important to note, though, that certain individuals (like public figures or journalists) may be at a higher risk of a targeted attack; nonetheless, they are, like everyone else, equally likely to become victims of attacks against the masses.*
+
+Now let's see the most common types of attacks that can compromise online accounts.
+
+### Phishing attacks
+
+A phishing attack is a **very common attack** that aims to get account credentials from the user. In fact, I bet that most people have come across this before. The attacker in a phishing attack impersonates an online service, usually by creating a website that looks identical to that of the service. Then, they send out a link to a user, and if the user decides to click the link and enter their credentials, the attackers now have all they need to log in to the account.
+
+Although phishing attacks can be targeted, **most commonly they are sent to a very large number of users** (either through email, SMS, or a messaging service).
+
+### Data breaches
+
+Another huge danger to account security is what's called a data breach. Data breaches happen at the service provider side, so no interaction from the user is required to get their credentials through a data leak. Sometimes the **companies behind online services make mistakes regarding their data security**, and access to their internal databases may be possible for an outside attacker, or sometimes the data is accessed internally and then publicized (usually sold) by one of the employees.
+
+This is especially dangerous due to the lack of control over this on the user side, and while most services store passwords in a securely hashed way, as a user, you can have no guarantee that this is indeed the case. And **even if the passwords are safe, other information may still be leaked**, like addresses, phone numbers, and payment information.
+
+After having acquired the contents of a data breach, if that breach contains passwords (if they are stored in a hashed form, they might try to use a [rainbow table](https://en.wikipedia.org/wiki/Rainbow_table) to get the actual password), hackers will often attempt to **use the leaked credentials in other common services looking for usable data or paid subscriptions**.
+
+So, for example, if you have a Spotify premium account and you used your login credentials across multiple sites, if a data breach occurs at any of those other sites, hackers might figure out that you have a Spotify subscription and then **sell your credentials to third parties** (this exact example actually occurred to me before).
+
+## Approaches to account security
+
+In this section, I will attempt to describe several habits, most of which can cause an increased risk of getting your credentials exposed, and I will also go into detail about why these practices are generally considered bad.
+
+### The worst possible approach
+
+The general characteristics of the absolute worst approach are the following:
+- Using their **same personal email address or the same username on all sites**
+- Using a simple password usually **derived from some kind of personal information** (that's usually pretty easy to find), like a name and a birth date **across every site**
+- Not using MFA due to inconvenience or due to not knowing about the possibility
+
+Now let's see the problems with this approach:
+- If someone knows who the account belongs to, they might be able to **guess the password from public personal data**
+- If the password gets leaked on one site, **malicious actors can now log in to every account** (because both the password and the email match)
+- If the user clicks a **phishing email** by mistake, there is **nothing preventing the sender of that email from from logging in** (due to not using MFA)
+
+### A slight improvement to the previous approach
+
+Let's take a look at a somewhat different approach with different characteristics:
+- Using their **same personal email address or the same username on all sites**
+- Using a randomly generated password and **writing it down in a notes application**
+- Still not using MFA due to inconvenience or due to not knowing about the possibility
+
+This approach is slightly better but still has some problems:
+- It's very **inconvenient** having to look up passwords every time the user wants to log in.
+- If the **notes service suffers a data breach**, all your passwords are now exposed, as most notes services store notes in plain text (hackers do look for passwords in data breaches containing only notes or files and not maybe credentials).
+- If the user clicks a **phishing email** by mistake, there is **nothing preventing the sender of that email from logging in** (due to not using MFA).
+
+If you let Chrome or Safari generate your passwords and then **trust your browser to store them, you are basically doing the same thing as described above**. Google doesn't even encrypt your passwords, and even though Apple does, by default they don't use [E2EE](https://en.wikipedia.org/wiki/End-to-end_encryption), so **the encryption keys can get leaked alongside your passwords** in a data breach. If someone gets access to your device where these passwords are stored, they can also **quite easily extract them from the browser**.
+
+### The correct approach
+
+Now, after all that talk about the dangers and the bad habits, let's look at a good approach that minimizes risks:
+- Using a **dedicated password manager** with a **long and memorized master password that has never been used before on an external site** (here are some [tips](https://www.keepersecurity.com/blog/2022/10/21/youre-only-as-strong-as-your-master-password/) for creating a master password)
+- Storing **all their passwords in the password manager** (and encrypted backups) and using **unique passwords generated by it**
+- Optionally using **email aliases** generated by the password manager
+- Using MFA through **[passkeys](https://www.passkeys.com/) or [TOTP codes](https://en.wikipedia.org/wiki/Time-based_one-time_password)** with the password manager
+- Trusting the password manager to automatically fill credentials
+
+How does this help in preventing account takeovers?
+- If the user clicks a phishing email, **the password manager will not suggest filling in the credentials**, leading to some suspicion, but even if the user decides to enter them manually, **MFA still protects them**
+- If a data breach happens, hackers **only get access to the breached service**, and **if email aliases were used, the account can't be tied to a real identity** (password managers will also **alert users about data breaches** so they can change their password)
+- The **passwords themselves can't be breached** as they are end-to-end encrypted (when using a trusted password manager and strong security meassures)
+
+An extra advantage of password managers is the **convenience**. Not having to type out passwords is a real time saver in the long run, and it is something I couldn't live without after having used it for quite some time.
+
+## A word of caution
+
+It's very important to choose correctly when it comes to password managers to avoid situations like the [LastPass incident](https://www.cybersecuritydive.com/news/lastpass-cyberattack-timeline/643958/). The security of a password manager can be verified **through independent audits and by the technical community if it's open source**.
+
+If you are looking for well established recommendations, take a look at [Privacy Guides](https://www.privacyguides.org/en/passwords/).
+
+From my personal experience, I can recommend [Bitwarden](https://bitwarden.com/) for anyone who's looking for a free or a paid password manager. It has worked flawlessly in my experience, supports a wide array of features (even in the free version), and is open source and independently audited. It can even be self-hosted with all the paid features for free, and so that's what I did. If anyone else is interested in doing that, I recommend [Vaultwarden](https://github.com/dani-garcia/vaultwarden).
+
+I can also recommend [Proton Pass](https://proton.me/pass), which is what I currently use as it is part of my Proton subscription. Although it's a great option with email aliasing and secure sharing, I would still recommend Bitwarden over it if you are only looking for a password manager as it is currently more reliable and feature rich. If the two mentioned features are important to you, then it's worth considering as those are not found in Bitwarden.
+
+## Conclusion
+
+Using a password manager in today's online climate is a no-brainer. It enhances security and convenience at the same time, and switching to them is pretty easy, considering that credentials can be imported from a browser export in basically every such software.
+
+I hope I could shine some light on the dangers of bad habits related to credential storage, and I wish for everyone a safe and secure online experience.
