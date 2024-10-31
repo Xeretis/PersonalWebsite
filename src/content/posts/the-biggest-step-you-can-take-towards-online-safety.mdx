@@ -67,7 +67,7 @@ This approach is slightly better but still has some problems:
 - If the **notes service suffers a data breach**, all your passwords are now exposed, as most notes services store notes in plain text (hackers do look for passwords in data breaches containing only notes or files and no credentials).
 - If the user clicks a **phishing email** by mistake, there is **nothing preventing the sender of that email from logging in** (due to not using MFA).
 
-If you let Chrome or Safari generate your passwords and then **trust your browser to store them, you are basically doing the same thing as described above**. Google doesn't even encrypt your passwords, and even though Apple does, by default they don't use [E2EE](https://en.wikipedia.org/wiki/End-to-end_encryption), so **the encryption keys can get leaked alongside your passwords** in a data breach. If someone gets access to your device where these passwords are stored, they can also **quite easily extract them from the browser**.
+If you let Chrome or Safari generate your passwords and then **trust your browser to store them, you are basically doing the same thing as described above**. Google doesn't even use [E2EE](https://en.wikipedia.org/wiki/End-to-end_encryption) by default, so **the encryption keys can get leaked alongside your passwords** in a data breach. If someone gets access to your device where these passwords are stored, they can also **quite easily extract them from the browser**.
 
 ### The correct approach
 
