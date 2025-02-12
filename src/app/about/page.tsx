@@ -160,7 +160,8 @@ export default function About() {
                             <span className="text-muted-foreground">(CAE Certified)</span>
                         </li>
                         <li>
-                            German: <span className="font-bold">B2/C1</span>
+                            German: <span className="font-bold">C1</span>{" "}
+                            <span className="text-muted-foreground">(DSD II Certified)</span>
                         </li>
                         <li>
                             French: <span className="font-bold">B2</span>
@@ -177,7 +178,7 @@ export default function About() {
                         </div>
                         <div className="flex items-center gap-4">
                             <span className="text-muted-foreground">DE</span>
-                            <Progress value={70} />
+                            <Progress value={80} />
                         </div>
                         <div className="flex items-center gap-4">
                             <span className="text-muted-foreground">FR</span>
