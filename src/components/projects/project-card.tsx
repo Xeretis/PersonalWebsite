@@ -26,6 +26,14 @@ import { DialogHeader } from "../ui/dialog";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { useState } from "react";
 
+declare global {
+    interface Window {
+        umami?: {
+            track: (eventName: string, eventData?: object) => void;
+        };
+    }
+}
+
 export interface Project {
     name: string;
     description: string;
@@ -46,6 +54,7 @@ export const ProjectCard = ({ project }: { project: Project }) => {
                     <div
                         onClick={() =>
                             /* @ts-ignore */
+                            window.umami &&
                             window.umami.track("project-open", { project: project.name })
                         }
                     >

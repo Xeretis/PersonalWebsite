@@ -44,7 +44,7 @@ export default function Projects() {
             description:
                 "A CLI application for speedcubers that allows you to race your friends in real-time. Alongside the duels feature, it also has all the speedcubing timer essentials, like offline timing, scramble generation, statistics and much more. This project was primarily made for the Hack Club 2025 Terminal Craft event.",
             tags: [".NET", "Spectre.Console", "ASP.NET Core", "SignalR"],
-            githubUrl: "https://github.com/Xeretis/QrTagger",
+            githubUrl: "https://github.com/Xeretis/ShellTimer",
         },
         {
             name: "DavidikumApp",
