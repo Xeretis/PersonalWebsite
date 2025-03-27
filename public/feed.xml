@@ -9,10 +9,10 @@
             <link>http://localhost:3000</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Sun, 08 Sep 2024 10:27:19 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 27 Mar 2025 17:00:39 GMT</lastBuildDate>
         <atom:link href="http://localhost:3000/feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Sun, 08 Sep 2024 10:27:19 GMT</pubDate>
-        <copyright><![CDATA[All rights reserved 2024]]></copyright>
+        <pubDate>Thu, 27 Mar 2025 17:00:39 GMT</pubDate>
+        <copyright><![CDATA[All rights reserved 2025]]></copyright>
         <item>
             <title><![CDATA[ASP.NET Core - Changing the OpenApi type of a class]]></title>
             <description><![CDATA[See how you can change the type of a property that you defined in the generated OpenApi documentation for an ASP.NET Core API. This is particularly useful if you have a custom model binder for the type of the property.]]></description>
@@ -26,6 +26,13 @@
             <link>http://localhost:3000/posts/getting-started-with-the-mvc-pattern</link>
             <guid isPermaLink="true">http://localhost:3000/posts/getting-started-with-the-mvc-pattern</guid>
             <pubDate>Mon, 22 Jan 2024 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[The biggest step you can take towards online security]]></title>
+            <description><![CDATA[Security in the cyberspace is an increasing concern for everyone. Learn about the simplest step you can take today to increase your security: using a password manager.]]></description>
+            <link>http://localhost:3000/posts/the-biggest-step-you-can-take-towards-online-safety</link>
+            <guid isPermaLink="true">http://localhost:3000/posts/the-biggest-step-you-can-take-towards-online-safety</guid>
+            <pubDate>Thu, 31 Oct 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[The evolution of my portfolio website]]></title>

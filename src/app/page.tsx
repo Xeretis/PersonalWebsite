@@ -197,8 +197,8 @@ export default async function Home() {
 
     return (
         <>
-            <div className="relative flex h-screen items-center justify-center gap-16 p-8 bg-dot-black/[0.2] dark:bg-dot-white/[0.2] max-md:flex-col ">
-                <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] dark:bg-black" />
+            <div className="relative flex h-screen items-center justify-center gap-16 p-8 bg-dot-background/[0.2] dark:bg-dot-white/[0.2] max-md:flex-col ">
+                <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] dark:bg-background" />
                 <SiteNavigation absolute />
                 <Image
                     src={portraitImage}

@@ -40,6 +40,13 @@ export default function Projects() {
             githubUrl: "https://github.com/Xeretis/QrTagger",
         },
         {
+            name: "ShellTimer",
+            description:
+                "A CLI application for speedcubers that allows you to race your friends in real-time. Alongside the duels feature, it also has all the speedcubing timer essentials, like offline timing, scramble generation, statistics and much more. This project was primarily made for the Hack Club 2025 Terminal Craft event.",
+            tags: [".NET", "Spectre.Console", "ASP.NET Core", "SignalR"],
+            githubUrl: "https://github.com/Xeretis/QrTagger",
+        },
+        {
             name: "DavidikumApp",
             description:
                 "A web application for the students at Davidikum Kollégium, Veszprém. It's main feature is meal cancellations but it is actively being developed with more and more new features to come.",
